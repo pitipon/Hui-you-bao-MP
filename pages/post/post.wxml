@@ -1,0 +1,40 @@
+<!--pages/post/post.wxml-->
+<text>POST PAGE</text>
+
+<!-- Have image: {{haveImage}}
+Image src: {{imageSrc}} -->
+
+<image wx:if="{{haveImage}}" class="" src="{{imageSrc}}" ></image>
+
+<view class="box price">
+      Price
+      <input class="search-txt"  placeholder="Input price that u buy" type="text"/>
+</view>
+
+<view class="box discount">
+      Discount
+      <input class="search-txt"  placeholder="Input discount that u got" type="text"/>
+</view>
+
+<view class="box category">
+      Category
+      <input class="search-txt"  placeholder="choose category" type="text"/>
+</view>
+
+
+<view class="box message">
+      Message
+      <input class="search-txt"  placeholder="message" type="text"/>
+</view>
+
+<view class="box location">
+      Pick location
+      <input class="search-txt"  placeholder="search for location" type="text"/>
+</view>
+
+<view class="box onlyme">
+      Only me?
+      <input class="search-txt"  placeholder="check box Y/N" type="text"/>
+</view>
+
+<button type="primary" form-type="submit" >Post</button>

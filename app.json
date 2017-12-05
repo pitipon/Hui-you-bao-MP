@@ -1,0 +1,40 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/post/post",
+    "pages/profile/profile"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#356CFF",
+    "navigationBarTitleText": "JING MA",
+    "navigationBarTextStyle":"#ffffff"
+  },
+    "tabBar": {
+      "backgroundColor": "#ffffff",
+      "borderStyle": "#ffffff",
+      "selectedColor": "#C1C1C1",
+      "color": "#C1C1C1",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "iconPath": "dist/images/feed.png",
+          "selectedIconPath": "dist/images/feed-active.png",
+          "text": "HOME"
+        },
+        {
+          "pagePath": "pages/post/post",
+          "iconPath": "dist/images/post-active.png",
+          "selectedIconPath": "dist/images/post-active.png"
+        },
+        {
+          "pagePath": "pages/profile/profile",
+          "iconPath": "dist/images/profile.png",
+          "selectedIconPath": "dist/images/profile-active.png",
+          "text": "PROFILE"
+        }
+      ]
+    }
+  }
+

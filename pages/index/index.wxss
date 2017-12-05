@@ -1,0 +1,102 @@
+/* pages/group/group.wxss */
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.discount-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+   text-align: center; 
+}
+
+.card {
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+}
+
+.flex-wrp {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-item-head {
+  flex: 0 0 60px;
+  
+}
+
+.flex-item-pic {
+  flex: 0 0 250px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.flex-item-msg {
+  flex: 0 0 30px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.flex-item-bottom {
+  flex: 0 0 30px;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.flex-for-name-time {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 5px;
+}
+
+.name-font-head {
+  font-size: 16px;
+}
+
+.detail-font-head {
+  font-size: 10px;
+  color: #888888;
+}
+
+.card-head-between-name-discount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 5px;
+}
+
+.flex-item-name {
+  flex: 0 0 auto;
+}
+
+.card-head-right {
+  flex: 1 0 auto;
+}
+
+.discount-text {
+  color: black;
+  font-size: 16px;
+   padding-top: 12px; 
+}
+
+.flex-item-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.flex-bottom-item {
+  color: #333333;
+  font-size: 12px;
+}
+
