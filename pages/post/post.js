@@ -16,7 +16,14 @@ Page({
   data: {
     haveImage: false,
     imageSrc: "",
-    categories: ['food', 'toys', 'books', 'bikes', 'animals'],
+    categories: ['food', 'cloth', 'IT', 'Taobao', 'JD'],
+    index: 0
+  },
+  bindPickerChange: function (e) {
+    console.log('picker sent selection change, the value brought is', e.detail.value)
+    this.setData({
+      index: e.detail.value
+    })
   },
 
   /**

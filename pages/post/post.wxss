@@ -1,4 +1,61 @@
 /* pages/post/post.wxss */
+
+.first-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+
+
+.price-input {
+  font-size: 50px;
+  height: 80px;
+}
+
+.price-placeholder {
+  font-size: 50px;
+}
+
+.message-input {
+  font-size: 20px;
+  height: 50px;
+  text-align: center;
+  border-top: 0.2px solid #dddddd;
+  border-bottom: 0.2px solid #dddddd;
+}
+
+.message-placeholder {
+  font-size: 20px;
+  text-align: center;
+}
+
+.box-picker {
+  height: 50px;
+}
+
+.picker {
+  font-size: 20px;
+  color: #878080;
+  padding-top: 10px;
+}
+
+.box-category {
+  border-bottom: 0.2px solid #dddddd;
+}
+
+.location-input {
+  font-size: 20px;
+  height: 50px;
+  text-align: center;
+  border-bottom: 0.2px solid #dddddd;
+}
+
+.location-placeholder {
+  font-size: 20px;
+  text-align: center;
+}
+
 .upload-bg{
   margin: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -8,26 +65,28 @@
 .category-title{
   text-align: center;
 }
-.box-price{
-  margin-left: 20rpx;
-}
-.box-discount{
-  margin-left: 20rpx;
-}
-.box-message{
-  margin-left: 20rpx;
-}
+
+
 .box-location{
   margin-left: 20rpx;
 }
 .upload-pic{
+  flex-grow: 1 0 auto;
+}
+
+
+.img-container {
   display: flex;
-  background-size: cover;
-  padding-top: 5rpx;
-  background-position: center center;
-  margin-left: 15rpx;
-  border-radius: 3rpx;
-  padding-bottom: 10rpx;
+  flex-flow: row wrap;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 5px;
 }
 
 .box-category{

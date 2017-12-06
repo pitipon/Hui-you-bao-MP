@@ -3,47 +3,52 @@
 <!-- Have image: {{haveImage}}
 Image src: {{imageSrc}} -->
 <view class ="upload-bg">
-<view class="box-price">
-      Price:
-      <input class="search-txt"  placeholder="Input price that u buy" type="text"/>
-</view>
+      <view class='first-container'>
+            <view class="box-price">
+            价格(元):
+            <input class="price-input"  placeholder="元" type="number" placeholder-class='price-placeholder' maxlength='5' />
+      </view>
 
-<view class="box-discount">
-  <view class="section section_gap">
-  <text class="section__title">Discount %</text>
-  <view class="body-view">
-    <slider bindchange="slider4change" min="1" max="100" show-value/>
-  </view>
-</view>
-</view>
+      <view class="box-discount">
+            浙扣(浙):
+            <input class="price-input"  placeholder="浙" type="number" placeholder-class='price-placeholder' maxlength='6' />
+      </view>
 
-<view class="box-message">
-      Message:
-      <input class="search-txt"  placeholder="Type your message here" type="text"/>
-</view>
+      </view>
+      
+     
+          <view class="box-message">
+            <input class="message-input"  placeholder="message" placeholder-class="message-placeholder" type="text" maxlength='28'/>
+      </view>
+    
+          <view class="box-message">
+            <input class="location-input"  placeholder="location" placeholder-class="location-placeholder" type="text" maxlength='28'/>
+      </view>
+      
 
-<view class="box-location">
-      Pick location:
-      <input class="search-txt"  placeholder="search for location" type="text"/>
-</view>
+    
 
-<view class="category-title">Category:</view>
-<view class="box-category">
-  <picker-view indicator-style="height: 30px;" style="width: 100%; height: 70px;" value="{{value}}" bindchange="bindChange">
-    <picker-view-column>
-      <view wx:for="{{categories}}" style="line-height: 30px">{{item}}</view>
-    </picker-view-column>
-    </picker-view>
-</view>
+      <!-- <view class="category-title">Category:</view> -->
 
-<view class="box-onlyme">
-      <switch bindchange="switch1Change"/></view> 
+      <view class="box-category">
+        <picker value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
+          <view class='picker'>
+            Category: {{categories[index]}}
+          </view>
+        </picker>
+      </view>
 
-      <view class="switch_to_the_right_for_only"> 
-    Only me?
-       
-</view>
-<view style="clear: both;"></view>
-<image wx:if="{{haveImage}}" class="upload-pic" src="{{imageSrc}}" ></image>
+            <view class="box-onlyme">
+                <switch bindchange="switch1Change"/>
+            </view> 
+
+            <view class="switch_to_the_right_for_only"> 
+              Only me?
+            </view>
+            <view style="clear: both;"></view>
+
+      <view class='img-container'>
+          <image wx:if="{{haveImage}}" class="" src="{{imageSrc}}"></image>
+      </view>
 </view>
 <button type="primary" form-type="submit" >Post</button>
