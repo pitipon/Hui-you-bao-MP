@@ -1,40 +1,49 @@
 <!--pages/post/post.wxml-->
-<text>POST PAGE</text>
 
 <!-- Have image: {{haveImage}}
 Image src: {{imageSrc}} -->
-
-<image wx:if="{{haveImage}}" class="" src="{{imageSrc}}" ></image>
-
-<view class="box price">
-      Price
+<view class ="upload-bg">
+<view class="box-price">
+      Price:
       <input class="search-txt"  placeholder="Input price that u buy" type="text"/>
 </view>
 
-<view class="box discount">
-      Discount
-      <input class="search-txt"  placeholder="Input discount that u got" type="text"/>
+<view class="box-discount">
+  <view class="section section_gap">
+  <text class="section__title">Discount %</text>
+  <view class="body-view">
+    <slider bindchange="slider4change" min="1" max="100" show-value/>
+  </view>
+</view>
 </view>
 
-<view class="box category">
-      Category
-      <input class="search-txt"  placeholder="choose category" type="text"/>
+<view class="box-message">
+      Message:
+      <input class="search-txt"  placeholder="Type your message here" type="text"/>
 </view>
 
-
-<view class="box message">
-      Message
-      <input class="search-txt"  placeholder="message" type="text"/>
-</view>
-
-<view class="box location">
-      Pick location
+<view class="box-location">
+      Pick location:
       <input class="search-txt"  placeholder="search for location" type="text"/>
 </view>
 
-<view class="box onlyme">
-      Only me?
-      <input class="search-txt"  placeholder="check box Y/N" type="text"/>
+<view class="category-title">Category:</view>
+<view class="box-category">
+  <picker-view indicator-style="height: 30px;" style="width: 100%; height: 70px;" value="{{value}}" bindchange="bindChange">
+    <picker-view-column>
+      <view wx:for="{{categories}}" style="line-height: 30px">{{item}}</view>
+    </picker-view-column>
+    </picker-view>
 </view>
 
+<view class="box-onlyme">
+      <switch bindchange="switch1Change"/></view> 
+
+      <view class="switch_to_the_right_for_only"> 
+    Only me?
+       
+</view>
+<view style="clear: both;"></view>
+<image wx:if="{{haveImage}}" class="upload-pic" src="{{imageSrc}}" ></image>
+</view>
 <button type="primary" form-type="submit" >Post</button>

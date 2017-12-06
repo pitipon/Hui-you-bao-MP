@@ -1,2 +1,21 @@
-<!--pages/profile/profile.wxml-->
-<text>pages/profile/profile.wxml</text>
+<view class="container-profile">
+     <view class="user-info" style="background-image: url(http://www.simplyrecipes.com/wp-content/uploads/2013/03/hoisin-glazed-salmon-a2.jpg?ea6e46)"> 
+        <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+        <view class="user-nickname">
+            {{userInfo.nickName}}
+        </view>
+        <view class="user-location">{{userInfo.province}}{{userInfo.city}}</view>
+    </view>
+    <view class="grids">
+        <block wx:for="{{gridList}}" wx:for-item="gridItem" wx:for-index="gridIndex" wx:key="grid">
+            <view class="grid" bindtap="viewGridDetail" data-url="{{gridItem.enName}}">
+                <view class="grid-icon grid-icon-{{gridItem.enName}}"></view>
+                <view class="grid-title">{{gridItem.zhName}}</view>
+            </view>
+        </block>
+    </view>
+</view>
+
+
+
+

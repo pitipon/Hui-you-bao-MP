@@ -1,1 +1,49 @@
 /* pages/post/post.wxss */
+.upload-bg{
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  font-size: 30rpx;
+}
+.category-title{
+  text-align: center;
+}
+.box-price{
+  margin-left: 20rpx;
+}
+.box-discount{
+  margin-left: 20rpx;
+}
+.box-message{
+  margin-left: 20rpx;
+}
+.box-location{
+  margin-left: 20rpx;
+}
+.upload-pic{
+  display: flex;
+  background-size: cover;
+  padding-top: 5rpx;
+  background-position: center center;
+  margin-left: 15rpx;
+  border-radius: 3rpx;
+  padding-bottom: 10rpx;
+}
+
+.box-category{
+  background-color: white;
+  text-align: center;
+}
+
+.box-onlyme{
+display: flex;
+float: right;
+padding-bottom: 10rpx;
+margin-left: 20rpx;
+}
+
+.switch_to_the_right_for_only{
+  margin-left: 20rpx;
+  
+
+}
