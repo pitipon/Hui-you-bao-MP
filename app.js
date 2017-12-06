@@ -1,91 +1,136 @@
+let salmon = "mo"
+let mo = getApp()
+
 App({
   onLaunch: function () {
     // WX code
     let app = this;
-    // wx.checkSession({
-    //   success: function() {
-    //     console.log("success, has account")
-    //   },
-    //   fail: function() {
+    let salmon2 = "mo2"
+    
     wx.login({
       success: function (res) {
         console.log("RES:")
         console.log(res)
+
         if (res.code) {
-          //发起网络请求
-          app.getUserInfo(function (userInfo) {
-            // console.log(userInfo)
-            try {
-              wx.setStorageSync('userInfo', userInfo)
-              console.log("stored user information")
-              console.log(userInfo)
-              // userInfo = { 
-              // nickName: "郑瑞銘 - mo", 
-              // avatarUrl: "http://wx.qlogo.cn/mmhead/7j1UQofaR9edCibqvqt3q025sSIl1oyraKROdyUyibboFcA8MWpzGSibQ/132", 
-              // gender: 1, 
-              // province: "Sichuan", 
-              // city: "Chengdu" }
+  
+          // Ask user for UserInfo
+          // wx.getUserInfo({
+          //   success: res => {
+              
+          //     app.globalData.userInfo = res.userInfo
+              
+              
+          //     console.log("Success get UserInfo")
+          //     console.log(app.globalData.userInfo)
+              
+          //   }
+          // })
+          console.log("wanna eat salmon")
+          app.getUserInfo( (userInfoFromCallBackHell) => {
 
-            } catch (e) {
-              console.log("couldn't set storage for avatar")
+              console.log("Print userinfo callback hell:")
+              console.log(userInfoFromCallBackHell)
+
+              wx.request({
+                success: function (res) {
+                  try {
+                    console.log("Res from server: ")
+                    console.log(res)
+
+                    wx.setStorageSync('token', res.data.authentication_token)
+                    wx.setStorageSync('currentUserId', res.data.id)
+                  } catch (e) {
+                    console.log("Didn't set storage")
+                  }
+                },
+
+                url: 'https://jinma.herokuapp.com/api/v1/users',
+                method: "post",
+                header: {
+                  'content-type': 'application/json'
+                },
+                data: {
+                  code: res.code,
+                  user: {
+                    name: userInfoFromCallBackHell.nickName,
+                    avatar_url: userInfoFromCallBackHell.avatarUrl,
+                    gender: userInfoFromCallBackHell.gender,
+                    province: userInfoFromCallBackHell.province,
+                    city: userInfoFromCallBackHell.city
+                  }
+                }
+              })
+
             }
-            wx.request({
-              success: function (res) {
-                try {
-                  wx.setStorageSync('token', res.data.authentication_token)
-                  wx.setStorageSync('currentUserId', res.data.id)
-                } catch (e) {
-                  console.log("Didn't set storage")
-                }
-              },
+          ,app)
 
-              url: 'https://seeme.shanghaiwogeng.com/api/v1/users',
-              method: "post",
-              data: {
-                code: res.code,
-                user: {
-                  avatar: userInfo.avatarUrl,
-                  nickname: userInfo.nickName,
-                  gender: userInfo.gender,
-                  province: userInfo.province,
-                  city: userInfo.city
-                }
-              }
-            })
-          })
+
+          //发起网络请求
+          console.log("Yes..We got code from RES")
+          console.log("Global Data before RES")
+          
+
+            // wx.request({
+            //   success: function (res) {
+            //     try {
+            //       console.log("Res from server: ")
+            //       console.log(res)
+
+                  
+
+            //       wx.setStorageSync('token', res.data.authentication_token)
+            //       wx.setStorageSync('currentUserId', res.data.id)
+            //     } catch (e) {
+            //       console.log("Didn't set storage")
+            //     }
+            //   },
+
+            //   url: 'https://jinma.herokuapp.com/api/v1/users',
+            //   method: "post",
+            //   header: {
+            //     'content-type': 'application/json'
+            //   },
+            //   data: {
+            //     code: res.code,
+            //     user: {
+            //       name: app.globalData.userInfo.nickName,
+            //       avatar_url: app.globalData.userInfo.avatarUrl,
+            //       gender: app.globalData.userInfo.gender,
+            //       province: app.globalData.userInfo.province,
+            //       city: app.globalData.userInfo.city
+            //     }
+            //   }
+            // })
+          
         } else {
           console.log('error' + res.errMsg)
         }
       }
     })
   },
-  // wx.getLocation({
-  //   type: 'wgs84',
-  //   success: function (res) {
-  //     console.log(res)
-  //     var lat = res.latitude
-  //     var lng = res.longitude
-  //   }
-  // })
-  // },
-  getUserInfo: function (cb) {
-    var that = this
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    } else {
-      //调用登录接口
-      wx.getUserInfo({
-        // withCredentials: false,
-        success: function (res) {
-          that.globalData.userInfo = res.userInfo
-          typeof cb == "function" && cb(that.globalData.userInfo)
-        }
-      })
-    }
+  getUserInfo: (func,app) => {
+    console.log("Salmonnnnnnnnnn")
+    let that = app
+    wx.getUserInfo({
+            success: res => {
+
+              that.globalData.userInfo = res.userInfo
+
+              console.log("Success get UserInfo")
+              console.log(that.globalData.userInfo)
+              func(res.userInfo)
+            }
+          })
   },
   globalData: {
-    userInfo: null,
-    lat: null,
-    lng: null
+    userInfo: {
+      nickName: "Jin ma",
+      avatarUrl: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513149291&di=2079d8d69eff7179496a5e6885bcf624&imgtype=jpg&er=1&src=http%3A%2F%2Ffarm1.staticflickr.com%2F122%2F310239034_2ba3ec89b4_z.jpg%3Fzz%3D1",
+      gender: "none",
+      province: "Sichuan",
+      city: "Chengdu"
+    },
+    salmon: "mo"
   }
 })

@@ -1,5 +1,6 @@
 /* pages/group/group.wxss */
 
+
 .avatar {
   width: 40px;
   height: 40px;
