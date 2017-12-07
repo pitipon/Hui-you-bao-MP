@@ -88,37 +88,7 @@ App({
           console.log("Global Data before RES")
           
 
-            // wx.request({
-            //   success: function (res) {
-            //     try {
-            //       console.log("Res from server: ")
-            //       console.log(res)
-
-                  
-
-            //       wx.setStorageSync('token', res.data.authentication_token)
-            //       wx.setStorageSync('currentUserId', res.data.id)
-            //     } catch (e) {
-            //       console.log("Didn't set storage")
-            //     }
-            //   },
-
-            //   url: 'https://jinma.herokuapp.com/api/v1/users',
-            //   method: "post",
-            //   header: {
-            //     'content-type': 'application/json'
-            //   },
-            //   data: {
-            //     code: res.code,
-            //     user: {
-            //       name: app.globalData.userInfo.nickName,
-            //       avatar_url: app.globalData.userInfo.avatarUrl,
-            //       gender: app.globalData.userInfo.gender,
-            //       province: app.globalData.userInfo.province,
-            //       city: app.globalData.userInfo.city
-            //     }
-            //   }
-            // })
+          
           
         } else {
           console.log('error' + res.errMsg)
@@ -152,7 +122,8 @@ App({
     token: "",
     currentUserId: "",
     email: "",
-    user: {}
+    user: {},
+    items: {}
 
   }
 })

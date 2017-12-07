@@ -8,13 +8,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    items: {},
+    is_loading: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
+    let that = this
     // Set Title
     wx.setNavigationBarTitle({
       title: 'JIN MA'
@@ -25,63 +28,48 @@ Page({
     console.log(app.globalData.token)
     console.log(app.globalData.currentUserId)
     console.log(app.globalData.email)
+
+    
+    // Load Card data
+    wx.request({
+      success: function (res) {
+        try {
+          console.log("INDEX API: ")
+          console.log(res)
+          app.globalData.items = res.data.items
+          console.log(app.globalData.items)
+          console.log("INDEX API SUCCESS")
+
+          that.setData({
+            items: res.data.items,
+            is_loading: false
+          })
+
+
+        } catch (e) {
+          console.log(e)
+        }
+      },
+
+      url: 'https://jinma.herokuapp.com/api/v1/items',
+      method: "get"
+    })
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-    // Slide-up menu for user to choose
-    // wx.showActionSheet({
-    //   itemList: ['Add', 'Edit', 'Delete'],
-    //   success: function (res) {
-    //     console.log(res.tapIndex)
-    //   },
-    //   fail: function (res) {
-    //     console.log(res.errMsg)
-    //   }
-    // })
-
-    // // POP-UP message with confirm and cancel
-    // wx.showModal({
-    //   title: 'Prompt',
-    //   content: 'This is a modal pop-up window',
-    //   success: function (res) {
-    //     if (res.confirm) {
-    //       console.log('User clicked on Confirm')
-    //     } else if (res.cancel) {
-    //       console.log('User clicked on Cancel')
-    //     }
-    //   }
-    // })
-
-
-    // SUCCESS Toast
-    // wx.showToast({
-    //   title: 'mo hungery',
-    //   icon: 'success',
-    //   duration: 2000
-    // })
-
-
-    // Loading Toast
-    // wx.showLoading({
-    //   title: 'Loading',
-    // })
-
-    // setTimeout(function () {
-    //   wx.hideLoading()
-    // }, 2000)
-
-
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
+    
   },
 
   /**

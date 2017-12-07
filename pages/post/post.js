@@ -129,14 +129,6 @@ Page({
     let _image_url = this.data.imageUrl
     let _is_private = !this.data.is_public
 
-    console.log(_price)
-    console.log(_discount)
-    console.log(_message)
-    console.log(_location)
-    console.log(_category)
-    console.log(_image_url)
-    console.log(_is_private)
-
 
     wx.request({
       success: function (res) {
@@ -169,16 +161,12 @@ Page({
           that.data.is_public = true
           that.data.is_take_photo = false
 
+          setTimeout(function () {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+          }, 2000)
 
-          // Clear ITEM after done post
-
-          // wx.switchTab({
-          //   url: '../../pages/index/index'
-          // })
-
-          wx.reLaunch({
-            url: '/pages/index/index'
-          });
           
 
         } catch (e) {

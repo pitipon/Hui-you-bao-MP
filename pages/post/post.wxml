@@ -16,7 +16,7 @@
 
       <view class="box-discount">
             浙扣(浙):
-            <input name="discount" class="price-input"  placeholder="浙" type="number" placeholder-class='price-placeholder' maxlength='6' />
+            <input name="discount" class="price-input"  placeholder="浙" type="number" placeholder-class='price-placeholder' maxlength='1' />
       </view>
 
       </view>
