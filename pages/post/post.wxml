@@ -11,7 +11,7 @@
       <view class='first-container'>
             <view class="box-price">
             价格(元):
-            <input name="price" class="price-input"  placeholder="元" type="number" placeholder-class='price-placeholder' maxlength='5' />
+            <input id="price" name="price" class="price-input"  placeholder="元" type="number" placeholder-class='price-placeholder' maxlength='5' />
       </view>
 
       <view class="box-discount">

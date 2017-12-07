@@ -25,7 +25,8 @@ Page({
     categories: ['food', 'cloth', 'IT', 'Taobao', 'JD'],
     index: 0,
     loading: false,
-    is_public: true
+    is_public: true,
+    is_take_photo: false
   },
   bindPickerChange: function (e) {
     console.log('picker sent selection change, the value brought is', e.detail.value)
@@ -46,13 +47,26 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     console.log("that >> ")
     console.log(that)
+    console.log(that.data.is_take_photo)
+    if(!that.data.is_take_photo) 
+    {
+      // Mark as already take picture
+      that.data.is_take_photo = true
+
     wx.chooseImage({
       count: 1, // Default 9
       sizeType: ['compressed'], // Can specify whether it is the original or compressed image, both have defaults
-      sourceType: ['camera','album'], // Can specify whether the source is an album or camera, both have defaults
+      sourceType: ['camera', 'album'], // Can specify whether the source is an album or camera, both have defaults
       success: function (res) {
         // Returns the local file path list for the selected photo, tempFilePath can be used as the img tag's src attribute to display the image
         var tempFilePath = res.tempFilePaths[0]
@@ -86,23 +100,9 @@ Page({
           }
           ).catch(console.error);
         // ######LEANCLOUD PART --- SEND IMG
-
-
-        // wx.showToast({
-        //   title: 'Success',
-        //   icon: 'success',
-        //   duration: 2000
-        // })
-
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
+    }
   },
 
   bindFormSubmit: function(e) {
@@ -158,9 +158,28 @@ Page({
               duration: 2000
           })
 
-          wx.switchTab({
-            url: '../../pages/index/index'
-          })
+          // Clear ITEM after done post
+          
+          that.data.haveImage = false
+          that.data.is_sending = false
+          that.data.imageSrc = ""
+          that.data.imageUrl = ""
+          that.data.index = ""
+          that.data.loading = false
+          that.data.is_public = true
+          that.data.is_take_photo = false
+
+
+          // Clear ITEM after done post
+
+          // wx.switchTab({
+          //   url: '../../pages/index/index'
+          // })
+
+          wx.reLaunch({
+            url: '/pages/index/index'
+          });
+          
 
         } catch (e) {
           console.log(e)
@@ -202,7 +221,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+   
   },
 
   /**
