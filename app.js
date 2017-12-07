@@ -16,33 +16,20 @@ App({
     
     wx.login({
       success: function (res) {
-        console.log("RES:")
+        console.log("RES from wechat:")
         console.log(res)
 
         if (res.code) {
   
-          // Ask user for UserInfo
-          // wx.getUserInfo({
-          //   success: res => {
-              
-          //     app.globalData.userInfo = res.userInfo
-              
-              
-          //     console.log("Success get UserInfo")
-          //     console.log(app.globalData.userInfo)
-              
-          //   }
-          // })
-          console.log("wanna eat salmon")
+          
+          // console.log("wanna eat salmon")
           app.getUserInfo( (userInfoFromCallBackHell) => {
-
-              console.log("Print userinfo callback hell:")
-              console.log(userInfoFromCallBackHell)
-
+              // console.log("Print userinfo callback hell:")
+              // console.log(userInfoFromCallBackHell)
               wx.request({
                 success: function (res) {
                   try {
-                    console.log("Res from server: ")
+                    console.log("Result from server: ")
                     console.log(res)
 
                     wx.setStorageSync('token', res.data.authentication_token)
@@ -52,11 +39,11 @@ App({
                     app.globalData.currentUserId = res.data.id
                     app.globalData.email = res.data.email
                     app.globalData.user = res.data
-                    console.log("TEST Res store globalData >>>")
-                    console.log(app.globalData.token)
-                    console.log(app.globalData.currentUserId)
-                    console.log(app.globalData.email)
-                    console.log(app.globalData.user)
+                    // console.log("TEST Res store globalData >>>")
+                    // console.log(app.globalData.token)
+                    // console.log(app.globalData.currentUserId)
+                    // console.log(app.globalData.email)
+                    // console.log(app.globalData.user)
                   } catch (e) {
                     console.log("Didn't set storage")
                   }
@@ -82,28 +69,43 @@ App({
             }
           ,app)
 
-
           //发起网络请求
-          console.log("Yes..We got code from RES")
-          console.log("Global Data before RES")
-          
-
-          
+          // console.log("Yes..We got code from RES")
+          // console.log("Global Data before RES")
           
         } else {
           console.log('error' + res.errMsg)
         }
+
+        // ## Send request card to avoid asyc
+        // wx.request({
+        //   success: function (res) {
+        //     try {
+        //       console.log("MMMINDEX API: ")
+        //       // console.log(res)
+        //       app.globalData.items = res.data.items
+        //       console.log(app.globalData.items)
+        //       console.log("INDEX API SUCCESS")          
+        //     } catch (e) {
+        //       console.log(e)
+        //     }
+        //   },
+
+        //   url: 'https://jinma.herokuapp.com/api/v1/items',
+        //   method: "get"
+        // })
+        // ## Send request card to avoid asyc
+
       }
     })
   },
   getUserInfo: (func,app) => {
-    console.log("Salmonnnnnnnnnn")
+    // console.log("Salmonnnnnnnnnn")
     let that = app
     wx.getUserInfo({
             success: res => {
 
               that.globalData.userInfo = res.userInfo
-
               console.log("Success get UserInfo")
               console.log(that.globalData.userInfo)
               func(res.userInfo)

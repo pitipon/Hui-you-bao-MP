@@ -24,13 +24,38 @@ Page({
     })
 
     // Set token to data local
-    console.log("TEST Res store globalData >>>")
-    console.log(app.globalData.token)
-    console.log(app.globalData.currentUserId)
-    console.log(app.globalData.email)
+    // console.log("TEST Res store globalData >>>")
+    // console.log(app.globalData.token)
+    // console.log(app.globalData.currentUserId)
+    // console.log(app.globalData.email)
 
+    // Set items data from app.js
     
+    
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    let that = this
+    // if(that.data.items == {}){
+    //   that.setData({
+    //     items: app.globalData.items
+    //   })
+    //   console.log("wanna eat salmon")
+    //   console.log(that.data.items)
+    // }
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     // Load Card data
+    let that = this
     wx.request({
       success: function (res) {
         try {
@@ -54,21 +79,6 @@ Page({
       url: 'https://jinma.herokuapp.com/api/v1/items',
       method: "get"
     })
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
     
   },
 
@@ -90,14 +100,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+      
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+      
   },
 
   /**

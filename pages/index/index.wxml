@@ -1,7 +1,7 @@
 <!--pages/group/group.wxml-->
 
 <!-- <view class="title">Recent | Popular | Category</view> -->
-  
+ 
 <!-- Loading cards  -->
 <view wx:if="{{is_loading}}" class="card" >
     <view class='flex-wrp'>
