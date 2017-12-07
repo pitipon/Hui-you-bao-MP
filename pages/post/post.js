@@ -158,6 +158,10 @@ Page({
               duration: 2000
           })
 
+          wx.switchTab({
+            url: '../../pages/index/index'
+          })
+
         } catch (e) {
           console.log(e)
         }
