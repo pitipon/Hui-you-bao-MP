@@ -1,4 +1,7 @@
 // pages/group/group.js
+
+const app = getApp()
+
 Page({
 
   /**
@@ -12,9 +15,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // Set Title
     wx.setNavigationBarTitle({
-      title: 'JING MA'
+      title: 'JIN MA'
     })
+
+    // Set token to data local
+    console.log("TEST Res store globalData >>>")
+    console.log(app.globalData.token)
+    console.log(app.globalData.currentUserId)
+    console.log(app.globalData.email)
   },
 
   /**

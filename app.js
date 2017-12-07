@@ -47,6 +47,16 @@ App({
 
                     wx.setStorageSync('token', res.data.authentication_token)
                     wx.setStorageSync('currentUserId', res.data.id)
+                    
+                    app.globalData.token = res.data.authentication_token
+                    app.globalData.currentUserId = res.data.id
+                    app.globalData.email = res.data.email
+                    app.globalData.user = res.data
+                    console.log("TEST Res store globalData >>>")
+                    console.log(app.globalData.token)
+                    console.log(app.globalData.currentUserId)
+                    console.log(app.globalData.email)
+                    console.log(app.globalData.user)
                   } catch (e) {
                     console.log("Didn't set storage")
                   }
@@ -138,6 +148,11 @@ App({
       province: "Sichuan",
       city: "Chengdu"
     },
-    salmon: "mo"
+    salmon: "mo",
+    token: "",
+    currentUserId: "",
+    email: "",
+    user: {}
+
   }
 })

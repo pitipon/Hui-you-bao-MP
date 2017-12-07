@@ -1,5 +1,6 @@
 
 var app = getApp();
+
 Page({
   data: {
     gridList: [

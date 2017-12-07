@@ -1,6 +1,7 @@
 // pages/post/post.js
 
 const AV = require('../../utils/av-weapp-min.js');
+const app = getApp()
 
 Page({
 
@@ -22,7 +23,9 @@ Page({
     imageSrc: "",
     imageUrl: "",
     categories: ['food', 'cloth', 'IT', 'Taobao', 'JD'],
-    index: 0
+    index: 0,
+    loading: false,
+    is_public: true
   },
   bindPickerChange: function (e) {
     console.log('picker sent selection change, the value brought is', e.detail.value)
@@ -35,7 +38,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log("test sth in post")
+    // console.log(app.globalData.email)
   },
 
   /**
@@ -98,7 +102,96 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    
+  },
 
+  bindFormSubmit: function(e) {
+    // 1. enable the loading animation on send button
+    let that = this
+    that.setData({
+      loading: !that.data.loading
+    })
+
+    // 2. show a Loading toast
+    wx.showToast({
+      title: 'Sending...',
+      icon: 'loading',
+      duration: 1500
+    })
+    console.log("Press Submit!!!!")
+    console.log(e)
+
+    let _price = e.detail.value.price
+    let _discount = e.detail.value.discount
+    let _message = e.detail.value.message
+    let _location = e.detail.value.location
+    let _category = this.data.categories[this.data.index]
+    let _image_url = this.data.imageUrl
+    let _is_private = !this.data.is_public
+
+    console.log(_price)
+    console.log(_discount)
+    console.log(_message)
+    console.log(_location)
+    console.log(_category)
+    console.log(_image_url)
+    console.log(_is_private)
+
+
+    wx.request({
+      success: function (res) {
+        try {
+          console.log("Res from server: ")
+          console.log(res)
+
+          // console.log("TEST Res store globalData >>>")
+          // console.log(app.globalData.token)
+          // console.log(app.globalData.currentUserId)
+          console.log("done for post to API")
+          that.setData({
+            loading: !that.data.loading
+          })
+
+          wx.showToast({
+              title: 'Success',
+              icon: 'success',
+              duration: 2000
+          })
+
+        } catch (e) {
+          console.log(e)
+        }
+      },
+
+      url: 'https://jinma.herokuapp.com/api/v1/items',
+      method: "post",
+      header: {
+        'content-type': 'application/json',
+        'X-User-Email': app.globalData.email,
+        'X-User-Token': app.globalData.token
+      },
+      data: {
+        item: {
+          price: _price,
+          discount: _discount,
+          description: _message,
+          image_url: _image_url,
+          category: _category,
+          is_private: _is_private,
+          latitude: 33.33,
+          longitude: 33.33,
+          location: _location
+        }
+      }
+    })
+
+
+    
+  },
+  switch1Change: function (e) {
+    console.log('switch1 has experienced a change event, the value brought is', e.detail.value)
+    this.data.is_public = e.detail.value
+    console.log(this.data.is_public)
   },
 
   /**

@@ -57,7 +57,11 @@
 }
 
 .upload-bg{
-  margin: 20px;
+  
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   background-color: white;
   font-size: 30rpx;
@@ -126,6 +130,15 @@ margin-left: 20rpx;
 .image-center {
   /* align-content: center; */
   text-align: center;
+}
+
+.public-text {
+  text-align: right;
+  margin-top: 3px;
+  margin-right: 15px;
+  
+  color: #878080;
+  font-size: 16px;
 }
 
 
