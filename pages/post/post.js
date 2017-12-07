@@ -1,4 +1,7 @@
 // pages/post/post.js
+
+const AV = require('../../utils/av-weapp-min.js');
+
 Page({
 
   //   var pageData = {}
@@ -15,7 +18,9 @@ Page({
    */
   data: {
     haveImage: false,
+    is_sending: false,
     imageSrc: "",
+    imageUrl: "",
     categories: ['food', 'cloth', 'IT', 'Taobao', 'JD'],
     index: 0
   },
@@ -38,27 +43,52 @@ Page({
    */
   onReady: function () {
     var that = this
+    console.log("that >> ")
+    console.log(that)
     wx.chooseImage({
       count: 1, // Default 9
-      sizeType: ['original', 'compressed'], // Can specify whether it is the original or compressed image, both have defaults
-      sourceType: ['album', 'camera'], // Can specify whether the source is an album or camera, both have defaults
+      sizeType: ['compressed'], // Can specify whether it is the original or compressed image, both have defaults
+      sourceType: ['camera','album'], // Can specify whether the source is an album or camera, both have defaults
       success: function (res) {
         // Returns the local file path list for the selected photo, tempFilePath can be used as the img tag's src attribute to display the image
-        var tempFilePaths = res.tempFilePaths
+        var tempFilePath = res.tempFilePaths[0]
 
-        console.log(tempFilePaths)
+        console.log("Temp file path >>")
+        console.log(tempFilePath)
         that.setData({
-          haveImage: true,
-          imageSrc: res.tempFilePaths
+          is_sending: true,
+          imageSrc: tempFilePath
         })
+        console.log("Have Image >>")
         console.log(that.data.haveImage)
-        console.log(that.data.imgSrc)
+        // console.log(that.data.imgSrc)
 
-        wx.showToast({
-          title: 'Success',
-          icon: 'success',
-          duration: 2000
-        })
+        // #####LEANCLOUD PART --- SEND IMG
+        console.log("Processing send img to LeanCloud >>")
+        new AV.File('file-name', {
+          blob: {
+            uri: tempFilePath,
+          },
+        }).save().then(
+          file => {
+            console.log("Yeah..This is img url in LeanCloud >>")
+            console.log(that)
+            console.log(file.url())
+            that.setData({
+              is_sending: false,
+              haveImage: true,
+              imageUrl: file.url()
+            })
+          }
+          ).catch(console.error);
+        // ######LEANCLOUD PART --- SEND IMG
+
+
+        // wx.showToast({
+        //   title: 'Success',
+        //   icon: 'success',
+        //   duration: 2000
+        // })
 
       }
     })

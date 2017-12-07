@@ -1,5 +1,12 @@
-let salmon = "mo"
-let mo = getApp()
+
+// Lean cloud ---
+const AV = require('/utils/av-weapp-min.js');
+
+AV.init({
+  appId: 'GJevWCcmzoFYQ5xSGMJt3SpC-gzGzoHsz',
+  appKey: 'smGlV3vdrjPQhAK8d5JIoca3',
+});
+// Lean cloud ---
 
 App({
   onLaunch: function () {

@@ -47,8 +47,59 @@ Image src: {{imageSrc}} -->
             </view>
             <view style="clear: both;"></view>
 
-      <view class='img-container'>
-          <image wx:if="{{haveImage}}" class="" src="{{imageSrc}}"></image>
+       <!-- <view class='image-center' >
+          <view wx:if="{{!haveImage}}">Sending..</view>
+          <image wx:if="{{!haveImage}}" class="image-sending" src="{{imageSrc}}"></image>
+      </view>   -->
+      
+      
+
+<view class='flex-container-image' wx:if="{{is_sending || haveImage}}">
+
+      
+      <view class='flex-container-image'>
+       <!-- sending  -->
+       <view class='image-center' >
+          <image wx:if="{{!haveImage}}" class="image-sending" src="{{imageSrc}}"></image>
       </view>
+
+          <view class="container"  wx:if="{{!haveImage}}">
+            <view class="box">
+                <view class="border one"></view>
+                <view class="border two"></view>
+                <view class="border three"></view>
+                <view class="border four"></view>
+
+                <view class="line one"></view>
+                <view class="line two"></view>
+                <view class="line three"></view>
+            </view>
+          </view>
+          <!--sending  -->
+
+          <!--finish sending  -->
+            <view class='flex-item-image' wx:if="{{haveImage}}" style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{imageUrl}}')">
+        </view>
+          <!--finish sending  -->
+      </view>
+
+      
+
+</view>
+
+
+
+      <!--## Show Image V.1   -->
+       <!-- <view class='img-container' >
+          <image wx:if="{{haveImage}}" class="" src="{{imageUrl}}"></image>
+      </view>  -->
+      <!--## Show Image V.1   -->
+
+      <!--## Show Image V.2   -->
+       <!-- <view class='flex-container-image' wx:if="{{haveImage}}">
+        <view class='flex-item-image' style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{imageUrl}}')">
+        </view>
+      </view>  -->
+      <!--## Show Image V.2   -->
 </view>
 <button type="primary" form-type="submit" >Post</button>
