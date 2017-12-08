@@ -2,6 +2,14 @@
 function fetchItemsRecent(url, page, cb) {
   let that = this
 
+  
+
+  setTimeout(function () {
+    that.setData({
+      is_pulldown: false
+    })
+  }, 500)
+
   console.log("HasMore:" + that.data.hasMore)
   console.log("URL:" + url)
   console.log("Page:" + page)
@@ -10,7 +18,7 @@ function fetchItemsRecent(url, page, cb) {
   if (that.data.hasMore) {
   // ### Sent GET request
   wx.request({
-    url: url,
+    url: url + that.data.start,
     method: "get",
     header: {
       "Content-Type": "application/json,application/json"
@@ -23,13 +31,20 @@ function fetchItemsRecent(url, page, cb) {
 
         that.setData({
           items: that.data.items.concat(res.data.items),
+          start: that.data.start + 1,
           showLoading: false,
           is_loading: false
         })
 
+        wx.stopPullDownRefresh()
+        typeof cb == 'function' && cb(res.data)
 
-      } catch (e) {
+      } 
+      catch (e) {
         console.log(e)
+
+        wx.stopPullDownRefresh()
+        typeof cb == 'function' && cb(res.data)
       }
     }
     

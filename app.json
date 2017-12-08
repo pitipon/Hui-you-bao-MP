@@ -9,7 +9,8 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#356CFF",
     "navigationBarTitleText": "JIN MA",
-    "navigationBarTextStyle":"#ffffff"
+    "navigationBarTextStyle":"#ffffff",
+    "enablePullDownRefresh": true
   },
     "tabBar": {
       "backgroundColor": "#ffffff",

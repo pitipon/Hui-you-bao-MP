@@ -14,7 +14,8 @@ Page({
     hasMore: true,
     showLoading: true,
     start: 1,
-    is_loading: true
+    is_loading: true,
+    is_pulldown: false
   },
 
   /**
@@ -99,7 +100,17 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-      
+      console.log("##on Pull down function ####")
+      var that = this
+      that.setData({
+        items: [],
+        hasMore: true,
+        showLoading: true,
+        start: 1,
+        is_loading: true,
+        is_pulldown: true
+      })
+      this.onLoad()
   },
 
   /**
@@ -107,12 +118,21 @@ Page({
    */
   onReachBottom: function () {
       
+
+      var that = this
+      if (!that.data.is_loading) {
+        console.log("Hey .. I am reach bottom")
+        that.setData({
+          is_loading: true
+        })
+        jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start)
+      }
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    
   }
 })

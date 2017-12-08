@@ -2,6 +2,12 @@
 
 <!-- <view class="title">Recent | Popular | Category</view> -->
  
+ <view wx:if="{{is_pulldown}}"  class="pull-down-center">
+ 
+ 
+  <image class='pull-avatar' src='../../dist/images/dog.png'></image>
+ 
+ </view>
 
 
   <!--  LOOP BLOCK FOR ALL CARDS -->
