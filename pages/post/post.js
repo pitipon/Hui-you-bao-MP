@@ -147,7 +147,7 @@ Page({
           wx.showToast({
               title: 'Success',
               icon: 'success',
-              duration: 2000
+              duration: 1000
           })
 
           // Clear ITEM after done post

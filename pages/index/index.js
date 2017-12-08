@@ -15,7 +15,9 @@ Page({
     showLoading: true,
     start: 1,
     is_loading: true,
-    is_pulldown: false
+    is_pulldown: false,
+    active_no_more_item: false,
+    
   },
 
   /**
@@ -120,13 +122,26 @@ Page({
       
 
       var that = this
-      if (!that.data.is_loading) {
+      console.log(that.data.hasMore)
+      if (!that.data.hasMore) {
+          // show message "no more item"
+          that.setData({
+            active_no_more_item: true
+          })
+          
+        }
+
+      if (!that.data.is_loading && that.data.hasMore) {
+        // !that.data.is_loading  >> Prevent first time load home page
+        // that.data.hasMore
         console.log("Hey .. I am reach bottom")
+        
         that.setData({
           is_loading: true
         })
         jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start)
       }
+      
   },
 
   /**

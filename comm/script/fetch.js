@@ -27,11 +27,12 @@ function fetchItemsRecent(url, page, cb) {
       try {
         console.log("INDEX API: ")
         console.log(res)
-    
+        // console.log(res.data.next_page == undefined)
 
         that.setData({
           items: that.data.items.concat(res.data.items),
           start: that.data.start + 1,
+          hasMore: !(res.data.next_page == undefined),
           showLoading: false,
           is_loading: false
         })

@@ -13,7 +13,7 @@
   <!--  LOOP BLOCK FOR ALL CARDS -->
 <block wx:for="{{items}}" wx:for-item="item">
 <!--CARDDDDDDD SECTION  -->
-<view class="card">
+<view wx:if="{{!item.is_private}}" class="card">
   <view class="flex-wrp">
 
     <!-- HEAD PART  -->
@@ -31,7 +31,7 @@
                 <view class='flex-for-name-time'>
                   <view class='name-font-head'>Mo-Pitipon</view>
                   <view class='detail-font-head'>
-                  5 mins ago at BKK salmon, Thailand</view>
+                  5 mins ago at {{item.location}}</view>
                 </view>  
               </view>
               <!-- FOR NAME AND LOCATION  -->
@@ -86,3 +86,9 @@
     </view>
 </view>
 <!-- Loading cards  -->
+
+<view wx:if='{{active_no_more_item && !is_loading}}' class="pull-down-center">
+
+    <image class='pull-avatar' src='../../dist/images/dog.png'></image>
+
+</view>
