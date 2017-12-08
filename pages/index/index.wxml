@@ -11,7 +11,7 @@
 
 
   <!--  LOOP BLOCK FOR ALL CARDS -->
-<block wx:for="{{items}}" wx:for-item="item">
+<block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
 <!--CARDDDDDDD SECTION  -->
 <view wx:if="{{!item.is_private}}" class="card">
   <view class="flex-wrp">
@@ -60,7 +60,7 @@
     <!-- HEAD PART  -->
 
     <!-- BODY PART  -->
-    <view wx:if="{{item.image_url}}" class="flex-item-pic " style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{item.image_url}}')"></view>
+    <view wx:if="{{item.image_url}}" class="flex-item-pic " style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{item.image_url}}')" data-index="{{itemsIndex}}" bindtap="previewImage"></view>
     <!-- BODY PART  -->
 
     <!-- BOTTOM PART  -->
