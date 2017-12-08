@@ -165,7 +165,7 @@ Page({
             wx.reLaunch({
               url: '/pages/index/index'
             })
-          }, 2000)
+          }, 500)
 
           
 
@@ -223,7 +223,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**
@@ -238,9 +238,52 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  takePicture: function (e) {
+    console.log("take a picture") 
+    var that = this
+
+
+    wx.chooseImage({
+      count: 1, // Default 9
+      sizeType: ['compressed'], // Can specify whether it is the original or compressed image, both have defaults
+      sourceType: ['camera', 'album'], // Can specify whether the source is an album or camera, both have defaults
+      success: function (res) {
+        // Returns the local file path list for the selected photo, tempFilePath can be used as the img tag's src attribute to display the image
+        var tempFilePath = res.tempFilePaths[0]
+
+        console.log("Temp file path >>")
+        console.log(tempFilePath)
+        that.setData({
+          is_sending: true,
+          imageSrc: tempFilePath
+        })
+        console.log("Have Image >>")
+        console.log(that.data.haveImage)
+        // console.log(that.data.imgSrc)
+
+        // #####LEANCLOUD PART --- SEND IMG
+        console.log("Processing send img to LeanCloud >>")
+        new AV.File('file-name', {
+          blob: {
+            uri: tempFilePath,
+          },
+        }).save().then(
+          file => {
+            console.log("Yeah..This is img url in LeanCloud >>")
+            console.log(that)
+            console.log(file.url())
+            that.setData({
+              is_sending: false,
+              haveImage: true,
+              imageUrl: file.url()
+            })
+          }
+          ).catch(console.error);
+        // ######LEANCLOUD PART --- SEND IMG
+      }
+    })
+
   }
 
-  // switch1Change: function (e) {
-  //   console.log('switch1 发生 change 事件，携带值为', e.detail.value)
-  // }
 })

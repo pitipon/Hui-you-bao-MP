@@ -51,9 +51,23 @@
           <view wx:if="{{!haveImage}}">Sending..</view>
           <image wx:if="{{!haveImage}}" class="image-sending" src="{{imageSrc}}"></image>
       </view>   -->
-      
-      
 
+<!-- In case .. user does not take picuture .. we bind button with take picture  -->
+<view class='flex-container-image' wx:if="{{!haveImage && !is_sending}}">
+
+    <view class='flex-container-image'>
+      
+      <view class="image-center">
+         
+          <view class='image-center' >
+          <image class="avatar" wx:if="{{!haveImage}}"  src="../../dist/images/camera.jpg" bindtap="takePicture"></image>
+          </view>
+      </view>
+    </view>
+</view>
+
+
+<!-- Contain pic after take picture  -->
 <view class='flex-container-image' wx:if="{{is_sending || haveImage}}">
 
       
