@@ -22,7 +22,7 @@
 
 .user-nickname {
     display: flex;
-    color: #eee;
+    color: #666666;
     font-size: 40rpx;
     height: 20rpx;
     outline-color: #000;
@@ -40,87 +40,56 @@
 
 .user-location {
     font-size: 24rpx;
-    color: #eee;
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, .6);
-}
-.grid-icon-box1 {
-    background-image: url(http://northendfish.com/wp-content/uploads/2010/11/slow-cooked-salmon.jpg);
+    color: #DDDDDD;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, .8);
     
 }
 
-.grids {
-    position: relative;
-    width: 100%;
+/* For Gallery  */
+.gallery {
     display: flex;
     flex-wrap: wrap;
-    font-size: 22rpx;
+    margin-bottom: 60rpx;
+    position: relative;
 }
 
-.grids::before, .grid::before, .grids::after, .grid::after {
+.gallery::before, .gallery::after, .gallery-item::before, .gallery-item::after {
     content: '';
     display: block;
     position: absolute;
-    z-index: 99;
-    background-color: #ccc;
+    background-color: #e5e5e5;
 }
-.grids::before, .grid::before {
+
+.gallery::before, .gallery::after {
+    top: 0;
     left: 0;
+}
+
+.gallery-item::before, .gallery-item::after {
+    bottom: 0;
+    right: 0;
+} 
+
+.gallery::before, .gallery-item::before {
     width: 100%;
     height: 1px;
     transform: scaleY(0.5);
 }
 
-.grids::before {
-    top: 0;
-}
-
-.grid::before {
-    bottom: 0;
-}
-
-.grids::after, .grid::after {
-    top: 0;
-    height: 100%;
+.gallery::after, .gallery-item::after {
     width: 1px;
+    height: 100%;
     transform: scaleX(0.5);
 }
 
-.grids::after {
-    left: 0;
-}
-
-.grid::after {
-    right: 0;
-}
-
-.grid {
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
+.gallery-item {
     width: 250rpx;
-    height: 258rpx;
-    text-align: center;
+    height: 250rpx;
+    overflow: hidden;
+    position: relative;
 }
 
-.grid:active {
-    background-color: #fafafa;
-}
-
-.grid-icon {
-     width: 200rpx;
-    height: 200rpx;
-    margin-top: 20rpx; 
-    margin-bottom: 10rpx;  
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
-
-
-.grid-title {
+.gallery-item-cover {
     width: 100%;
-    color: #666;
+    height: 100%;
 }

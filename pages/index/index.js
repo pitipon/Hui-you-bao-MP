@@ -23,7 +23,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
 
     var that = this
     // Set Title
@@ -149,5 +149,17 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  previewImage: function (e) {
+    var data = e.currentTarget.dataset
+    var index = data.index
+    var that = this
+    console.log("preview >>")
+    console.log(index)
+    console.log(that.data.items[index].image_url)
+    wx.previewImage({
+      current: that.data.items[index].image_url, // image url that want to preview
+      urls: [that.data.items[index].image_url]  // Lists of all images that need to proview
+    })
   }
 })

@@ -1,25 +1,25 @@
 
-var app = getApp();
+const app = getApp()
+var config = require('../../comm/script/config')
+var jinma = require('../../comm/script/fetch')
 
 Page({
   data: {
-    gridList: [
-      { enName: 'box1', zhName: 'salmon <3er' },
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-    ],
+    userInfo: {},
+    items: [],
+    hasMore: true,
+    showLoading: true,
+    start: 1,
+    is_loading: true,
+    is_pulldown: false,
+    active_no_more_item: false,
   },
 
-  onLoad: function (cb) {
+  onLoad: function () {
     var that = this
     console.log(app.globalData.userInfo)
 
+    // ###Set userInfo to local data
     if (app.globalData.userInfo != null) {
       that.setData({
         userInfo: app.globalData.userInfo
@@ -27,22 +27,33 @@ Page({
     } else {
       app.getUserInfo()
     }
-    typeof cb == 'function' && cb()
+    // ###Set userInfo to local data
+
+    console.log("Profile >>>>>")
+    // Fetch items from user
+    jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start)
+
   },
 
 
   onPullDownRefresh: function () {
+    console.log(this.data.items)
     this.onLoad(function () {
       wx.stopPullDownRefresh()
     })
   },
-
-  viewGridDetail: function (e) {
+  previewImage: function (e) {
     var data = e.currentTarget.dataset
-    wx.navigateTo({
-      url: "../" + data.url + '/' + data.url
+    var index = data.index
+    var that = this
+    console.log("preview >>")
+    console.log(index)
+    console.log(that.data.items[index].image_url)
+    wx.previewImage({
+      current: that.data.items[index].image_url, // image url that want to preview
+      urls: [that.data.items[index].image_url]  // Lists of all images that need to proview
     })
-  },
+  }
 })
 
 

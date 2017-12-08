@@ -1,21 +1,22 @@
 <view class="container-profile">
-     <view class="user-info" style="background-image: url(http://www.simplyrecipes.com/wp-content/uploads/2013/03/hoisin-glazed-salmon-a2.jpg?ea6e46)"> 
+     <view class="user-info" style="background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9)), url('')"> 
         <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
         <view class="user-nickname">
             {{userInfo.nickName}}
         </view>
-        <view class="user-location">{{userInfo.province}}{{userInfo.city}}</view>
+        <view class="user-location">{{userInfo.province}}, {{userInfo.city}}</view>
     </view>
-    <view class="grids">
-        <block wx:for="{{gridList}}" wx:for-item="gridItem" wx:for-index="gridIndex" wx:key="grid">
-            <view class="grid" bindtap="viewGridDetail" data-url="{{gridItem.enName}}">
-                <view class="grid-icon grid-icon-{{gridItem.enName}}"></view>
-                <view class="grid-title">{{gridItem.zhName}}</view>
+    
+
+
+</view>
+
+<view class="gallery">
+        <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
+            <view class="gallery-item">
+                <image class="gallery-item-cover" src="{{item.image_url}}" mode="aspectFill" data-index="{{itemsIndex}}" bindtap="previewImage"></image>
             </view>
         </block>
     </view>
-</view>
-
-
 
 

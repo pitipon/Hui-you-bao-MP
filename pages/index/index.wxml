@@ -67,7 +67,10 @@
     <view class="flex-item-bottom">
        
         <view class='flex-bottom-item'>❤ {{item.num_likes}}人</view>
-        <view class='flex-bottom-item'>Comment</view>
+        <view class='flex-bottom-item'>
+        Comment
+        <block wx:if="{{item.num_comments}}">({{item.num_comments}})</block>
+        </view>
         <view class='flex-bottom-item'>Share</view>
     </view>
     <!-- BOTTOM PART  -->
