@@ -31,14 +31,16 @@
                 <view class='flex-for-name-time'>
                   <view class='name-font-head'>Mo-Pitipon</view>
                   <view class='detail-font-head'>
-                  5 mins ago at {{item.location}}</view>
+                      {{item.item_created_at}}
+                      <block wx:if="{{item.location}}"> at {{item.location}}</block> 
+                  </view>
                 </view>  
               </view>
               <!-- FOR NAME AND LOCATION  -->
 
               <!-- FOR DISCOUNT  -->
               <view >
-                <view class="discount-avatar " style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url('../../dist/images/salmon1.jpg')">
+                <view wx:if="{{item.discount}}" class="discount-avatar " style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url('')">
                     <view class='discount-text'>
                       {{item.discount}}折
                     </view>  
@@ -50,11 +52,15 @@
          <!-- HEAD RIGHT (name + discount)  -->
       </view>
     </view>
-    <view class="flex-item-msg">{{item.description}} , {{item.price}}元 </view>
+    <view class="flex-item-msg">
+      <block wx:if="{{item.description}}">{{item.description}}</block>
+      <block wx:if="{{item.description && item.price}}">  , </block>
+      <block wx:if="{{item.price}}">{{item.price}}元</block>
+    </view>
     <!-- HEAD PART  -->
 
     <!-- BODY PART  -->
-    <view class="flex-item-pic " style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{item.image_url}}')"></view>
+    <view wx:if="{{item.image_url}}" class="flex-item-pic " style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{item.image_url}}')"></view>
     <!-- BODY PART  -->
 
     <!-- BOTTOM PART  -->
