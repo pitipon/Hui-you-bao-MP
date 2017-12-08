@@ -1,6 +1,8 @@
 // pages/group/group.js
 
 const app = getApp()
+var config = require('../../comm/script/config')
+var jinma = require('../../comm/script/fetch')
 
 Page({
 
@@ -8,7 +10,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    items: {},
+    items: [],
+    hasMore: true,
+    showLoading: true,
+    start: 1,
     is_loading: true
   },
 
@@ -17,11 +22,13 @@ Page({
    */
   onLoad: function (options) {
 
-    let that = this
+    var that = this
     // Set Title
     wx.setNavigationBarTitle({
       title: 'JIN MA'
     })
+
+    jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start )
 
     // Set token to data local
     // console.log("TEST Res store globalData >>>")
@@ -29,9 +36,31 @@ Page({
     // console.log(app.globalData.currentUserId)
     // console.log(app.globalData.email)
 
-    // Set items data from app.js
-    
-    
+    // #########Set items data from app.js
+    // wx.request({
+    //   success: function (res) {
+    //     try {
+    //       console.log("INDEX API: ")
+    //       console.log(res)
+    //       app.globalData.items = res.data.items
+    //       console.log(app.globalData.items)
+    //       console.log("INDEX API SUCCESS")
+
+    //       that.setData({
+    //         items: res.data.items,
+    //         is_loading: false
+    //       })
+
+
+    //     } catch (e) {
+    //       console.log(e)
+    //     }
+    //   },
+
+    //   url: config.apiList.recent,
+    //   method: "get"
+    // })
+    // #########Set items data from app.js
 
   },
 
@@ -39,14 +68,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    let that = this
-    // if(that.data.items == {}){
-    //   that.setData({
-    //     items: app.globalData.items
-    //   })
-    //   console.log("wanna eat salmon")
-    //   console.log(that.data.items)
-    // }
+    
     
   },
 
@@ -55,30 +77,7 @@ Page({
    */
   onShow: function () {
     // Load Card data
-    let that = this
-    wx.request({
-      success: function (res) {
-        try {
-          console.log("INDEX API: ")
-          console.log(res)
-          app.globalData.items = res.data.items
-          console.log(app.globalData.items)
-          console.log("INDEX API SUCCESS")
-
-          that.setData({
-            items: res.data.items,
-            is_loading: false
-          })
-
-
-        } catch (e) {
-          console.log(e)
-        }
-      },
-
-      url: 'https://jinma.herokuapp.com/api/v1/items',
-      method: "get"
-    })
+    
     
   },
 

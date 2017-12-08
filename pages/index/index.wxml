@@ -2,22 +2,7 @@
 
 <!-- <view class="title">Recent | Popular | Category</view> -->
  
-<!-- Loading cards  -->
-<view wx:if="{{is_loading}}" class="card" >
-    <view class='flex-wrp'>
-        <view class="FB-Loading-Card">
-            <view class="FB-Loading-FirstBox">
-                  <view class="FB-Loading-FirstBox-Img avatar"></view>
-                  <view class="FB-Loading-FirstBox-1stRow"></view>
-                  <view class="FB-Loading-FirstBox-2ndRow"></view>
-            </view>
-            <view class="FB-Loading-FirstBox-3rdRow"></view>
-            <view class="FB-Loading-FirstBox-4thRow"></view>
-            <view class="FB-Loading-FirstBox-5thRow"></view>
-        </view>
-    </view>
-</view>
-<!-- Loading cards  -->
+
 
   <!--  LOOP BLOCK FOR ALL CARDS -->
 <block wx:for="{{items}}" wx:for-item="item">
@@ -78,3 +63,20 @@
 </view>
 <!--CARDDDDDDD SECTION  -->
 </block>
+
+<!-- Loading cards  -->
+<view wx:if="{{is_loading}}" class="card" >
+    <view class='flex-wrp'>
+        <view class="FB-Loading-Card">
+            <view class="FB-Loading-FirstBox">
+                  <view class="FB-Loading-FirstBox-Img avatar"></view>
+                  <view class="FB-Loading-FirstBox-1stRow"></view>
+                  <view class="FB-Loading-FirstBox-2ndRow"></view>
+            </view>
+            <view class="FB-Loading-FirstBox-3rdRow"></view>
+            <view class="FB-Loading-FirstBox-4thRow"></view>
+            <view class="FB-Loading-FirstBox-5thRow"></view>
+        </view>
+    </view>
+</view>
+<!-- Loading cards  -->
