@@ -28,7 +28,7 @@ Page({
     var that = this
     // Set Title
     wx.setNavigationBarTitle({
-      title: 'JIN MA'
+      title: 'JING MA 精妈'
     })
 
     jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start )

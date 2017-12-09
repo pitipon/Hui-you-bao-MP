@@ -3,12 +3,13 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/post/post",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/test/test"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#356CFF",
-    "navigationBarTitleText": "JIN MA",
+    "navigationBarTitleText": "JING MA 精妈",
     "navigationBarTextStyle":"#ffffff",
     "enablePullDownRefresh": true
   },
@@ -34,6 +35,12 @@
           "iconPath": "dist/images/profile.png",
           "selectedIconPath": "dist/images/profile-active.png",
           "text": "PROFILE"
+        },
+        {
+          "pagePath": "pages/test/test",
+          "iconPath": "dist/images/group.png",
+          "selectedIconPath": "dist/images/group-active.png",
+          "text": "TEST"
         }
       ]
     }
