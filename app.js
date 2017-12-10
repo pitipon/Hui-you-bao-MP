@@ -114,8 +114,8 @@ App({
   },
   globalData: {
     userInfo: {
-      nickName: "Jin ma",
-      avatarUrl: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1513149291&di=2079d8d69eff7179496a5e6885bcf624&imgtype=jpg&er=1&src=http%3A%2F%2Ffarm1.staticflickr.com%2F122%2F310239034_2ba3ec89b4_z.jpg%3Fzz%3D1",
+      nickName: "Jing ma",
+      avatarUrl: "../../dist/images/dog.png",
       gender: "none",
       province: "Sichuan",
       city: "Chengdu"

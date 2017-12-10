@@ -39,9 +39,18 @@
 }
 
 .flex-item-msg {
-  flex: 0 0 30px;
+  flex: 0 0 15px;
   font-size: 14px;
   text-align: center;
+  margin-top: 5px;
+}
+
+.flex-item-location {
+  flex: 0 0 20px;
+  font-size: 8px;
+  text-align: center;
+  color: #888888;
+  margin-bottom: 5px;
 }
 
 .flex-item-bottom {

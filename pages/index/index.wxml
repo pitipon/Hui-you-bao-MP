@@ -32,7 +32,7 @@
                   <view class='name-font-head'>Mo-Pitipon</view>
                   <view class='detail-font-head'>
                       {{item.item_created_at}}
-                      <block wx:if="{{item.location}}"> at {{item.location}}</block> 
+                      
                   </view>
                 </view>  
               </view>
@@ -56,6 +56,10 @@
       <block wx:if="{{item.description}}">{{item.description}}</block>
       <block wx:if="{{item.description && item.price}}">  , </block>
       <block wx:if="{{item.price}}">{{item.price}}元</block>
+    </view>
+
+    <view class="flex-item-location">
+      <block wx:if="{{item.location}}"> at {{item.location}}</block> 
     </view>
     <!-- HEAD PART  -->
 

@@ -1,19 +1,70 @@
 /* pages/post/post.wxss */
 
+ .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 0 300rpx 100rpx rgba(255, 255, 255, .2), 0 1px 0 rgba(255, 255, 255, 0.4);
+} 
+
+.user-item {
+  flex: 0 0 50px;
+  /* padding-top: 10px;
+  padding-left: 5px; */
+
+  margin-left: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+.message-item {
+  flex: 1 0 auto;
+}
+
+.submit-item {
+  flex: 0 0 50px;
+}
+
+.submit-property {
+  height: 25px;
+  width: 60px;
+  font-size: 10px;
+  padding: 0px;
+  margin-top: 15px;
+  margin-right: 10px;
+}
+
 .avatar {
-  width: 100px;
-  height: 100px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   margin-left: 5px;
   margin-top: 5px;
 }
 
-.first-container {
+.row-container {
   display: flex;
   justify-content: space-around;
   text-align: center;
+  border-bottom: 0.2px solid #dddddd;
 }
 
+.border-right {
+  border-right: 0.2px solid #dddddd;
+  padding-right: 15px;
+}
+
+.photo-text {
+  font-size: 12px;
+  color: #666666;
+  padding-top: 10px;
+}
+
+.location-text {
+  font-size: 12px;
+  color: #666666;
+  padding-top: 10px;
+}
 
 
 .price-input {
@@ -27,16 +78,17 @@
 }
 
 .message-input {
-  font-size: 20px;
-  height: 50px;
-  text-align: center;
+  font-size: 14px;
+  height: 60px;
+  vertical-align: top;
+  text-align: left;
   border-top: 0.2px solid #dddddd;
-  border-bottom: 0.2px solid #dddddd;
+  
 }
 
 .message-placeholder {
-  font-size: 20px;
-  text-align: center;
+  font-size: 14px;
+  text-align: left;
   color: #dddddd;
 }
 
@@ -54,17 +106,27 @@
   border-bottom: 0.2px solid #dddddd;
 }
 
+.location-input-item {
+  flex: 1 0 auto;
+  margin-left: 10px;
+}
+
 .location-input {
-  font-size: 20px;
-  height: 50px;
+  font-size: 12px;
+  height: 30px;
   text-align: center;
-  border-bottom: 0.2px solid #dddddd;
+  padding-top: 5px;
+  color: #999999;
 }
 
 .location-placeholder {
-  font-size: 20px;
+  font-size: 12px;
   text-align: center;
   color: #dddddd;
+}
+
+.location-padding {
+  padding-right: 5px;
 }
 
 .upload-bg{

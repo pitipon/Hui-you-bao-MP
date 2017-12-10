@@ -26,7 +26,10 @@ Page({
     index: 0,
     loading: false,
     is_public: true,
-    is_take_photo: false
+    is_take_photo: false,
+    value_location: "",
+    value_latitude: 33.33,
+    value_longitude: 33.33
   },
   bindPickerChange: function (e) {
     console.log('picker sent selection change, the value brought is', e.detail.value)
@@ -39,8 +42,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log("test sth in post")
-    // console.log(app.globalData.email)
+    var that = this
+    console.log(app.globalData.userInfo)
+
+    // ###Set userInfo to local data
+    if (app.globalData.userInfo != null) {
+      that.setData({
+        userInfo: app.globalData.userInfo
+      })
+    } else {
+      app.getUserInfo()
+    }
   },
 
   /**
@@ -128,6 +140,8 @@ Page({
     let _category = this.data.categories[this.data.index]
     let _image_url = this.data.imageUrl
     let _is_private = !this.data.is_public
+    let _latitude = this.data.latitude
+    let _longitude = this.data.longitude
 
 
     wx.request({
@@ -189,8 +203,8 @@ Page({
           image_url: _image_url,
           category: _category,
           is_private: _is_private,
-          latitude: 33.33,
-          longitude: 33.33,
+          latitude: _latitude,
+          longitude: _longitude,
           location: _location
         }
       }
@@ -284,6 +298,27 @@ Page({
       }
     })
 
+  },
+  pinLocation: function(e) {
+
+    let that = this
+
+    wx.chooseLocation({
+      success: function (res) {
+        console.log(res) 
+        that.setData({
+          value_location: res.name,
+          value_latitude: res.latitude,
+          value_longitude: res.longitude
+        })
+      },
+      fail: function (e) {
+        console.log(e)
+      },
+      cencel: function (e) {
+        console.log(e)
+      }
+    })
   }
 
 })
