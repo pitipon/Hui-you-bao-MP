@@ -42,11 +42,57 @@
   margin-top: 5px;
 }
 
+.avatar-category {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.category3-padding {
+  padding-top: 5px;
+  padding-right: 5px;
+}
+
+.border-right-only {
+  border-right: 0.2px solid #dddddd;
+}
+
+.category1-padding {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
+.category-text {
+  font-size: 12px;
+  color: #666666;
+  
+}
+
 .row-container {
   display: flex;
   justify-content: space-around;
   text-align: center;
   border-bottom: 0.2px solid #dddddd;
+}
+
+.public-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-public-item1{
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.flex-public-item2{
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.flex-public-item2{
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .border-right {
@@ -64,17 +110,32 @@
   font-size: 12px;
   color: #666666;
   padding-top: 10px;
+  padding-right: 10px;
 }
 
 
 .price-input {
-  font-size: 50px;
-  height: 80px;
+  font-size:25px;
+  height: 40px;
+  color: #666666;
 }
 
 .price-placeholder {
-  font-size: 50px;
+  font-size: 30px;
   color: #dddddd;
+}
+
+.box-price {
+  padding-top: 5px;
+}
+
+.box-discount {
+  padding-top: 5px;
+}
+
+.header-text {
+  color: #666666;
+  font-size: 14px;
 }
 
 .message-input {
@@ -93,22 +154,40 @@
 }
 
 .box-picker {
-  height: 50px;
+  height: 40px;
 }
 
 .picker {
-  font-size: 20px;
-  color: #878080;
+  font-size: 14px;
+  color: #666666;
   padding-top: 10px;
 }
 
-.box-category {
-  border-bottom: 0.2px solid #dddddd;
+.flex-category1 {
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
-.location-input-item {
-  flex: 1 0 auto;
-  margin-left: 10px;
+.flex-category2 {
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+
+.flex-category3 {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.flex-item-photo {
+  flex-grow: 0;
+}
+
+.flex-item-location {
+  flex-grow: 0;
+}
+
+.flex-item-location2 {
+  flex-grow: 1;
 }
 
 .location-input {
@@ -206,12 +285,14 @@ margin-left: 20rpx;
 }
 
 .public-text {
-  text-align: right;
-  margin-top: 3px;
-  margin-right: 15px;
-  
-  color: #878080;
-  font-size: 16px;
+  color: #666666;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.change-scale {
+  transform: scale(0.6, 0.6);
+  padding-top: 3px;
 }
 
 

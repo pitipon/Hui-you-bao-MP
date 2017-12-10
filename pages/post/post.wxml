@@ -1,10 +1,25 @@
 <!--pages/post/post.wxml-->
 
 <form bindsubmit="bindFormSubmit">
-            <view class="public-text">
-                Public
-                <switch checked bindchange="switch1Change"/>
+            
+             
+      <!-- Public button  -->
+      <view class='public-container'>
+            <view class='flex-public-item1'>
             </view>
+
+            <view class='flex-public-item2'>
+                  <view class="public-text">Public</view>
+            </view>
+            <view class='flex-public-item3'>
+                  <view class='change-scale'>
+                      <switch checked bindchange="switch1Change"/>
+                  </view>
+            </view>
+            
+            
+      </view>
+      <!-- Public button  -->
 
 <view class ="upload-bg">
 
@@ -21,7 +36,7 @@
             <view class='submit-item'>                     
                 <button class="submit-property" type="primary" form-type="submit" loading="{{loading}}" >Send</button>
             </view>
-   
+    
       </view>
       <!--FIRST ROW  -->
       
@@ -29,16 +44,19 @@
       <view class='row-container'>
 
         <!-- PHOTO ICON in second row -->
-         <view class='row-container border-right' bindtap="takePicture">
+        <view class="flex-item-photo">
+              <view class='row-container border-right' bindtap="takePicture">
                        <view class='image-center' >
           <image class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
-          </view>
-          <view class='photo-text'>Photo</view>
-          
-         </view>
+                      </view>
+              <view class='photo-text'>Photo</view>
+              </view>
 
-     
-              <!-- LOCATION ICON : in second row  -->
+        </view>
+         
+
+        <view class='flex-item-location'>
+                  <!-- LOCATION ICON : in second row  -->
                 <view class='row-container' bindtap="pinLocation">
                     <view class='image-center location-padding' >
                         <image class="avatar"   src="../../dist/images/location.jpg" bindtap="pinLocation"></image> 
@@ -46,30 +64,33 @@
 
                     <view class='location-text'>Location</view>
                  </view>
+        </view>
+
+     
+              
 
            
 
              
                  <!-- LOCATION INPUT : in second row  -->
-                      <view class="location-input-item">
+          <view class="flex-item-location2">
                       <input name="location" class="location-input"  value="{{value_location}}" placeholder="" placeholder-class="location-placeholder" type="text" maxlength='28'/>
-          </view>
-
-
-          
+          </view> 
 
       </view>
       <!--SECOND ROW  -->
 
       <view class='row-container'>
             <view class="box-price">
-            价格(元):
-                <input id="price" name="price" class="price-input"  placeholder="元" type="number" placeholder-class='price-placeholder' maxlength='5' />
+              <view class='header-text'>价格 (元)</view>
+              
+                <input id="price" name="price" class="price-input"  placeholder="0" type="number" placeholder-class='price-placeholder' maxlength='5' />
             </view>
 
             <view class="box-discount">
-            浙扣(浙):
-                  <input name="discount" class="price-input"  placeholder="浙" type="number" placeholder-class='price-placeholder' maxlength='1' />
+            <view class='header-text'>浙扣 (浙)</view>
+            
+                  <input name="discount" class="price-input"  placeholder="-" type="number" placeholder-class='price-placeholder' maxlength='1' />
             </view>
 
       </view>
@@ -77,42 +98,46 @@
      
           
     
-      
-
     
+  <!-- CATEGORY - ROW  -->
+      <view class='row-container'>
 
-      <!-- <view class="category-title">Category:</view> -->
+      <!-- CATEGORY - Part1  -->
+      <view class="flex-category1 border-right-only">
+          <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
+          <view class='category1-padding'>
+             <view class='category-text'>Category</view>
+          </view>
+        </picker>
+         
+      </view>
+      <!-- CATEGORY - Part1  -->
 
-      <view class="box-category">
+      <!-- CATEGORY - Part2  -->
+      <view class="flex-category2">
         <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
           <view class='picker'>
-            Category: {{categories[index]}}
+            {{categories[index]}}
           </view>
         </picker>
       </view>
+      <!-- CATEGORY - Part2  -->
 
-            
-            
-            
-
-       <!-- <view class='image-center' >
-          <view wx:if="{{!haveImage}}">Sending..</view>
-          <image wx:if="{{!haveImage}}" class="image-sending" src="{{imageSrc}}"></image>
-      </view>   -->
-
-<!-- In case .. user does not take picuture .. we bind button with take picture  -->
-<!-- <view class='flex-container-image' wx:if="{{!haveImage && !is_sending}}">
-
-    <view class='flex-container-image'>
-      
-     
-          <view class='image-center' >
-          <image class="avatar" wx:if="{{!haveImage}}"  src="../../dist/images/camera.jpg" bindtap="takePicture"></image>
+      <!-- CATEGORY - Part3  -->
+      <view class="flex-category3">
+        <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
+          <view class='category3-padding'>
+             <image class="avatar-category"   src="../../dist/images/arrow-down.jpg" ></image> 
           </view>
-      
-         </view>
-</view> -->
+        </picker>
+      </view>      
+      <!-- CATEGORY - Part3  -->
 
+      </view>
+  <!-- CATEGORY - ROW  -->
+
+
+            
 
 <!-- Contain pic after take picture  -->
 <view class='flex-container-image' wx:if="{{is_sending || haveImage}}">
@@ -164,6 +189,6 @@
       <!--## Show Image V.2   -->
 </view>
             
-<button type="primary" form-type="submit" loading="{{loading}}" >Send</button>
+<button wx:if="{{haveImage}}" type="primary" form-type="submit" loading="{{loading}}" >Send</button>
 
 </form>

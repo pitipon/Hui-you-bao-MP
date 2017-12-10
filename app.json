@@ -35,12 +35,6 @@
           "iconPath": "dist/images/profile.png",
           "selectedIconPath": "dist/images/profile-active.png",
           "text": "PROFILE"
-        },
-        {
-          "pagePath": "pages/test/test",
-          "iconPath": "dist/images/group.png",
-          "selectedIconPath": "dist/images/group-active.png",
-          "text": "TEST"
         }
       ]
     }
