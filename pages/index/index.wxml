@@ -75,7 +75,10 @@
         Comment
         <block wx:if="{{item.num_comments}}">({{item.num_comments}})</block>
         </view>
-        <view class='flex-bottom-item'>Share</view>
+        <!-- <view class='flex-bottom-item' bindtap='onShareAppMessage'>Share</view> -->
+        <view bindtap="shareMessage" data-index="{{itemsIndex}}">
+            <button class="share-btn" open-type="share" type="primary">Share</button>
+        </view>
     </view>
     <!-- BOTTOM PART  -->
   </view>

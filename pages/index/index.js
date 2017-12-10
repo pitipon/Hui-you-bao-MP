@@ -17,7 +17,7 @@ Page({
     is_loading: true,
     is_pulldown: false,
     active_no_more_item: false,
-    
+    share_index: 0
   },
 
   /**
@@ -148,7 +148,28 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+    let that = this
+    console.log("On Share Message")
     
+
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+    return {
+      title: 'ITEM NAME',
+      path: 'pages/index/index'
+    }
+  },
+  shareMessage: function (e) {
+    let that = this
+    let data = e.currentTarget.dataset
+    let index = data.index
+
+    that.setData({
+      share_index: index
+    })
+    console.log("share Message function>>")
+    console.log(data)
   },
   previewImage: function (e) {
     var data = e.currentTarget.dataset
