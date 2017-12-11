@@ -21,7 +21,7 @@
       <view class="card-head">
           <!-- HEAD LEFT (avatar) -->
           <view class="card-head-left">
-              <image class="avatar" src='../../dist/images/mo.jpg'></image>
+              <image class="avatar" src='{{item.user.avatar_url}}'></image>
           </view>
           <!-- HEAD RIGHT (name + discount)  -->
           <view class="card-head-right">
@@ -29,7 +29,7 @@
               <!-- FOR NAME AND LOCATION  -->
               <view class='flex-item-name'> 
                 <view class='flex-for-name-time'>
-                  <view class='name-font-head'>Mo-Pitipon</view>
+                  <view class='name-font-head'>{{item.user.name}}</view>
                   <view class='detail-font-head'>
                       {{item.item_created_at}}
                       
@@ -70,16 +70,21 @@
     <!-- BOTTOM PART  -->
     <view class="flex-item-bottom">
        
-        <view class='flex-bottom-item'>❤ {{item.num_likes}}人</view>
+        <!--like  -->
         <view class='flex-bottom-item'>
-        Comment
+        ❤ {{item.num_likes}}人
+        </view>
+        <!--like  -->
+        <!--comment  -->
+        <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='commentItem'>
+        评论
         <block wx:if="{{item.num_comments}}">({{item.num_comments}})</block>
         </view>
-         <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='shareMessage'>Share</view> 
-        <!-- <view bindtap="shareMessage" data-index="{{itemsIndex}}">
-            <button class="share-btn" open-type="share" type="primary">Share</button>
-        </view> -->
-        <!-- <navigator class='flex-bottom-item' url="/pages/share/share" hover-class="navigator-hover">Share</navigator> -->
+        <!--comment  -->
+        <!--share  -->
+         <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='shareMessage'>分享</view> 
+        <!--share  -->
+        
     </view>
     <!-- BOTTOM PART  -->
   </view>

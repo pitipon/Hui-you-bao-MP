@@ -1,3 +1,39 @@
+let config = require('../../comm/script/config')
+
+function getItemComment(id, cb) {
+  let that = this
+  let _url = config.apiList.comment_with_id + id + config.apiList.comment_postfix
+  console.log("URL Comment >> " + _url)
+  console.log(id)
+
+  // ### Sent GET request
+  wx.request({
+    url: _url,
+    method: "get",
+    header: {
+      "Content-Type": "application/json,application/json"
+    },
+    success: function (res) {
+      try {
+        console.log("Result of Item comment: ")
+        console.log(res)
+
+        that.setData({
+          comments: res.data
+        })
+
+        typeof cb == 'function' && cb(res.data)
+
+      }
+      catch (e) {
+        console.log(e)
+
+        typeof cb == 'function' && cb(res.data)
+      }
+    }
+  })
+}
+
 
 function fetchItemDetail(url, id, cb) {
   let that = this
@@ -97,5 +133,6 @@ function fetchItemsRecent(url, page, cb) {
 
 module.exports = {
   fetchItemsRecent: fetchItemsRecent,
-  fetchItemDetail: fetchItemDetail
+  fetchItemDetail: fetchItemDetail,
+  getItemComment: getItemComment
 }

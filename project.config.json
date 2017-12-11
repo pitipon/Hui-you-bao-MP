@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.6.6",
-	"appid": "wx82f13f420fc6ed06",
-	"projectname": "JINGMA-TEST-2",
+	"appid": "wx6545a117799ef0b5",
+	"projectname": "JINGMA-MP-DEPLOY",
 	"condition": {
 		"search": {
 			"current": -1,

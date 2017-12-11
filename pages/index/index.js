@@ -3,7 +3,7 @@
 const app = getApp()
 let config = require('../../comm/script/config')
 let jinma = require('../../comm/script/fetch')
-
+ 
 Page({
 
   /**
@@ -149,6 +149,16 @@ Page({
    */
   onShareAppMessage: function () {
    
+  },
+  commentItem: function(e) {
+    let that = this
+    let data = e.currentTarget.dataset
+    let index = data.index
+
+    let _url = '/pages/comment/comment?id=' + that.data.items[index].id
+    wx.navigateTo({
+      url: _url
+    })
   },
   shareMessage: function (e) {
     let that = this

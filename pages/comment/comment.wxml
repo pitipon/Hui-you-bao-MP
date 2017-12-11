@@ -1,0 +1,64 @@
+<!-- {{item_id}} -->
+
+
+<form bindsubmit="bindFormSubmit">
+            
+    <view class ="upload-bg">
+      <!--FIRST ROW  -->
+      <view class='row-container'>
+          
+
+
+          <view class="user-item">
+            <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+          </view>
+
+            <view class="message-item">
+            <input name="message" class="message-input"  placeholder="分享新鲜事" placeholder-class="message-placeholder" type="text" maxlength='30'/>
+      </view>
+
+            <view class='submit-item'>                     
+                <button class="submit-property" type="primary" form-type="submit" loading="{{loading}}" >发送</button>
+            </view>
+    
+      </view>
+      <!--FIRST ROW  -->
+    </view>
+    
+</form>
+
+
+<!-- VIEW COMMENT PART  -->
+
+  <!--  LOOP BLOCK FOR ALL CARDS -->
+
+<view class ="upload-bg">
+      <!--FIRST ROW  -->
+      <view class='row-container' wx:for="{{comments}}" wx:for-item="comment" wx:for-index="commentsIndex" wx:key="comments">
+
+      <view class="user-item">
+            <image src="{{comment.user.avatar_url}}" class="user-avatar"></image>
+      </view>
+
+      <view class="message-item">
+            <!-- FOR NAME AND LOCATION  -->
+              <view class='flex-item-name'> 
+                <view class='flex-for-name-time'>
+                  <view class='name-font-head'>{{comment.user.name}}, {{comment.item_created_at}}</view>
+                  <view class='detail-font-head'>
+                      {{comment.body}}
+                      
+                  </view>
+                </view>  
+              </view>
+              <!-- FOR NAME AND LOCATION  -->
+      </view>
+          
+    
+      </view>
+      <!--FIRST ROW  -->
+
+
+
+      
+</view>

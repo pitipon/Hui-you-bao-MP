@@ -49,7 +49,7 @@ App({
                   }
                 },
 
-                url: 'https://jinma.herokuapp.com/api/v1/users',
+                url: 'https://jingma.shanghaiwogeng.com/api/v1/users',
                 method: "post",
                 header: {
                   'content-type': 'application/json'

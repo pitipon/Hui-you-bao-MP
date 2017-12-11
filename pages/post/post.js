@@ -188,7 +188,7 @@ Page({
         }
       },
 
-      url: 'https://jinma.herokuapp.com/api/v1/items',
+      url: 'https://jingma.shanghaiwogeng.com/api/v1/items',
       method: "post",
       header: {
         'content-type': 'application/json',

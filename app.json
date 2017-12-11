@@ -5,7 +5,8 @@
     "pages/post/post",
     "pages/profile/profile",
     "pages/test/test",
-    "pages/share/share"
+    "pages/share/share",
+    "pages/comment/comment"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -24,7 +25,7 @@
           "pagePath": "pages/index/index",
           "iconPath": "dist/images/feed.png",
           "selectedIconPath": "dist/images/feed-active.png",
-          "text": "HOME"
+          "text": "首页"
         },
         {
           "pagePath": "pages/post/post",
@@ -35,7 +36,7 @@
           "pagePath": "pages/profile/profile",
           "iconPath": "dist/images/profile.png",
           "selectedIconPath": "dist/images/profile-active.png",
-          "text": "PROFILE"
+          "text": "我的"
         }
       ]
     }

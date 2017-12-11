@@ -9,7 +9,7 @@
             </view>
 
             <view class='flex-public-item2'>
-                  <view class="public-text">Public</view>
+                  <view class="public-text">公开</view>
             </view>
             <view class='flex-public-item3'>
                   <view class='change-scale'>
@@ -30,11 +30,11 @@
           </view>
 
             <view class="message-item">
-            <input name="message" class="message-input"  placeholder="what's on your mind" placeholder-class="message-placeholder" type="text" maxlength='28'/>
+            <input name="message" class="message-input"  placeholder="分享新鲜事" placeholder-class="message-placeholder" type="text" maxlength='30'/>
       </view>
 
             <view class='submit-item'>                     
-                <button class="submit-property" type="primary" form-type="submit" loading="{{loading}}" >Send</button>
+                <button class="submit-property" type="primary" form-type="submit" loading="{{loading}}" >发送</button>
             </view>
     
       </view>
@@ -49,7 +49,7 @@
                        <view class='image-center' >
           <image class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
                       </view>
-              <view class='photo-text'>Photo</view>
+              <view class='photo-text'>拍摄</view>
               </view>
 
         </view>
@@ -62,7 +62,7 @@
                         <image class="avatar"   src="../../dist/images/location.jpg" bindtap="pinLocation"></image> 
                     </view>
 
-                    <view class='location-text'>Location</view>
+                    <view class='location-text'>地点</view>
                  </view>
         </view>
 
@@ -88,7 +88,7 @@
             </view>
 
             <view class="box-discount">
-            <view class='header-text'>浙扣 (浙)</view>
+            <view class='header-text'>折扣 (折)</view>
             
                   <input name="discount" class="price-input"  placeholder="-" type="number" placeholder-class='price-placeholder' maxlength='1' />
             </view>
@@ -106,7 +106,7 @@
       <view class="flex-category1 border-right-only">
           <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
           <view class='category1-padding'>
-             <view class='category-text'>Category</view>
+             <view class='category-text'>品类</view>
           </view>
         </picker>
          
