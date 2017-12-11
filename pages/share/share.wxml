@@ -1,17 +1,8 @@
-<!--pages/group/group.wxml-->
 
-<!-- <view class="title">Recent | Popular | Category</view> -->
- 
- <view wx:if="{{is_pulldown}}"  class="pull-down-center">
- 
- 
-  <image class='pull-avatar' src='../../dist/images/dog.png'></image>
- 
- </view>
+<!-- WX:if ... make the card for share  -->
 
 
-  <!--  LOOP BLOCK FOR ALL CARDS -->
-<block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
+
 <!--CARDDDDDDD SECTION  -->
 <view wx:if="{{!item.is_private}}" class="card">
   <view class="flex-wrp">
@@ -31,7 +22,7 @@
                 <view class='flex-for-name-time'>
                   <view class='name-font-head'>Mo-Pitipon</view>
                   <view class='detail-font-head'>
-                      {{item.item_created_at}}
+                      <!-- {{item.item_created_at}} -->
                       
                   </view>
                 </view>  
@@ -52,7 +43,9 @@
          <!-- HEAD RIGHT (name + discount)  -->
       </view>
     </view>
-    <view class="flex-item-msg">
+
+
+     <view class="flex-item-msg">
       <block wx:if="{{item.description}}">{{item.description}}</block>
       <block wx:if="{{item.description && item.price}}">  , </block>
       <block wx:if="{{item.price}}">{{item.price}}元</block>
@@ -60,52 +53,32 @@
 
     <view class="flex-item-location">
       <block wx:if="{{item.location}}"> at {{item.location}}</block> 
-    </view>
+    </view> 
+
+
     <!-- HEAD PART  -->
 
     <!-- BODY PART  -->
     <view wx:if="{{item.image_url}}" class="flex-item-pic " style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{item.image_url}}')" data-index="{{itemsIndex}}" bindtap="previewImage"></view>
     <!-- BODY PART  -->
 
-    <!-- BOTTOM PART  -->
-    <view class="flex-item-bottom">
-       
-        <view class='flex-bottom-item'>❤ {{item.num_likes}}人</view>
-        <view class='flex-bottom-item'>
-        Comment
-        <block wx:if="{{item.num_comments}}">({{item.num_comments}})</block>
-        </view>
-         <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='shareMessage'>Share</view> 
-        <!-- <view bindtap="shareMessage" data-index="{{itemsIndex}}">
-            <button class="share-btn" open-type="share" type="primary">Share</button>
-        </view> -->
-        <!-- <navigator class='flex-bottom-item' url="/pages/share/share" hover-class="navigator-hover">Share</navigator> -->
-    </view>
-    <!-- BOTTOM PART  -->
+    
   </view>
 </view>
 <!--CARDDDDDDD SECTION  -->
-</block>
 
-<!-- Loading cards  -->
-<view wx:if="{{is_loading}}" class="card" >
-    <view class='flex-wrp'>
-        <view class="FB-Loading-Card">
-            <view class="FB-Loading-FirstBox">
-                  <view class="FB-Loading-FirstBox-Img avatar"></view>
-                  <view class="FB-Loading-FirstBox-1stRow"></view>
-                  <view class="FB-Loading-FirstBox-2ndRow"></view>
-            </view>
-            <view class="FB-Loading-FirstBox-3rdRow"></view>
-            <view class="FB-Loading-FirstBox-4thRow"></view>
-            <view class="FB-Loading-FirstBox-5thRow"></view>
+
+
+
+
+
+<!-- Button Share  -->
+<view bindtap="onShareAppMessage" data-index="{{itemsIndex}}">
+            <button class="share-btn" open-type="share" type="primary">Share</button>
         </view>
-    </view>
-</view>
-<!-- Loading cards  -->
 
-<view wx:if='{{active_no_more_item && !is_loading}}' class="pull-down-center">
 
-    <image class='pull-avatar' src='../../dist/images/dog.png'></image>
+<!-- WX:if ... for user enter MP from card share  -->
+<!-- Redirect to index ... by onLoading  -->
 
-</view>
+         <!-- <view bindtap='backToIndex'>Welcome to Jing ma</view>  -->

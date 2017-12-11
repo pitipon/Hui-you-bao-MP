@@ -125,7 +125,8 @@ App({
     currentUserId: "",
     email: "",
     user: {},
-    items: {}
+    items: {},
+    item: {}
 
   }
 })

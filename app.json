@@ -4,12 +4,13 @@
     "pages/logs/logs",
     "pages/post/post",
     "pages/profile/profile",
-    "pages/test/test"
+    "pages/test/test",
+    "pages/share/share"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#356CFF",
-    "navigationBarTitleText": "JING MA 精妈",
+    "navigationBarTitleText": "精妈",
     "navigationBarTextStyle":"#ffffff",
     "enablePullDownRefresh": true
   },

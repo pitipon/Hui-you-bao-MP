@@ -1,4 +1,44 @@
 
+function fetchItemDetail(url, id, cb) {
+  let that = this
+
+  console.log("URL:" + url)
+  console.log("Item id:" + id)
+
+  // ### Sent GET request
+  wx.request({
+    url: url + id,
+    method: "get",
+    header: {
+      "Content-Type": "application/json,application/json"
+    },
+    success: function (res) {
+      try {
+        console.log("Result of Item detail: ")
+        console.log(res)
+
+        that.setData({
+          item: res.data
+        })
+        
+        typeof cb == 'function' && cb(res.data)
+
+      }
+      catch (e) {
+        console.log(e)
+
+        typeof cb == 'function' && cb(res.data)
+      }
+    }
+
+  })
+  // ### Sent GET request
+
+
+}
+
+
+
 function fetchItemsRecent(url, page, cb) {
   let that = this
 
@@ -56,5 +96,6 @@ function fetchItemsRecent(url, page, cb) {
 }
 
 module.exports = {
-  fetchItemsRecent: fetchItemsRecent 
+  fetchItemsRecent: fetchItemsRecent,
+  fetchItemDetail: fetchItemDetail
 }

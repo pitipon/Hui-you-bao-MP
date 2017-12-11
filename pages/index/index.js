@@ -1,8 +1,8 @@
 // pages/group/group.js
 
 const app = getApp()
-var config = require('../../comm/script/config')
-var jinma = require('../../comm/script/fetch')
+let config = require('../../comm/script/config')
+let jinma = require('../../comm/script/fetch')
 
 Page({
 
@@ -27,9 +27,9 @@ Page({
 
     var that = this
     // Set Title
-    wx.setNavigationBarTitle({
-      title: 'JING MA 精妈'
-    })
+    // wx.setNavigationBarTitle({
+    //   title: 'JING MA 精妈'
+    // })
 
     jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start )
 
@@ -148,17 +148,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    let that = this
-    console.log("On Share Message")
-    
-
-    wx.showShareMenu({
-      withShareTicket: true
-    })
-    return {
-      title: 'ITEM NAME',
-      path: 'pages/index/index'
-    }
+   
   },
   shareMessage: function (e) {
     let that = this
@@ -168,8 +158,24 @@ Page({
     that.setData({
       share_index: index
     })
+
+    // Store index from card key to DataStorage 
+    // .... we store details of cards
+
+    app.globalData.item = that.data.items[index]
+
+    let _url = '/pages/share/share?id=' + that.data.items[index].id
+
     console.log("share Message function>>")
     console.log(data)
+    console.log(app.globalData.item)
+    console.log(_url)
+
+
+    wx.navigateTo({
+      url: _url
+    })
+
   },
   previewImage: function (e) {
     var data = e.currentTarget.dataset
