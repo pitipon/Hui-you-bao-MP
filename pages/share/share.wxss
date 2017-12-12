@@ -1,5 +1,8 @@
 /* pages/group/group.wxss */
-
+.padding-share {
+  margin-left: 18px;
+  margin-right: 18px;
+}
 
 .avatar {
   width: 40px;

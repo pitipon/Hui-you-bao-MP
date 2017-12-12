@@ -74,7 +74,7 @@
 
 <!-- Button Share  -->
 <view bindtap="onShareAppMessage" data-index="{{itemsIndex}}">
-            <button class="share-btn" open-type="share" type="primary">Share</button>
+            <button class="share-btn padding-share" open-type="share" type="primary">分享</button>
         </view>
 
 

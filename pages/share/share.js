@@ -111,9 +111,22 @@ Page({
       })
     }, 500)
 
+    let _title = ""
+    _title = that.data.item.description
+    if (that.data.item.price != ""){
+      _title += ", " + that.data.item.price + "元"
+    }
+
+    if (that.data.item.discount != ""){
+      _title += ", " + that.data.item.discount + "折"
+    }
+
+    if (_title == "") {
+      _title = "惠优宝 hui you bao >>"
+    }
 
     return {
-      // title: '精妈 JING MA ',
+      title: _title,
       path: 'pages/index/index'
     }
   },

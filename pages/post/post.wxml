@@ -189,6 +189,6 @@
       <!--## Show Image V.2   -->
 </view>
             
-<button wx:if="{{haveImage}}" type="primary" form-type="submit" loading="{{loading}}" >Send</button>
+<button wx:if="{{haveImage}}" class='padding-share' type="primary" form-type="submit" loading="{{loading}}" >发送</button>
 
 </form>

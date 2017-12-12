@@ -1,5 +1,10 @@
 /* pages/post/post.wxss */
 
+.padding-share {
+  margin-left: 18px;
+  margin-right: 18px;
+}
+
  .user-avatar {
     width: 40px;
     height: 40px;
