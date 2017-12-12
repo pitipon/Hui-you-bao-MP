@@ -12,7 +12,7 @@
   <!--  LOOP BLOCK FOR ALL CARDS -->
 <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
 <!--CARDDDDDDD SECTION  -->
-<view wx:if="{{!item.is_private}}" class="card">
+<view wx:if="{{!item.is_private && (item.image_url)}}" class="card">
   <view class="flex-wrp">
 
     <!-- HEAD PART  -->
@@ -51,6 +51,8 @@
          <!-- HEAD RIGHT (name + discount)  -->
       </view>
     </view>
+    <!--discription + price + location  -->
+    <block wx:if="{{item.description && item.price && item.location}}">
     <view class="flex-item-msg">
       <block wx:if="{{item.description}}">{{item.description}}</block>
       <block wx:if="{{item.description && item.price}}">  , </block>
@@ -60,6 +62,9 @@
     <view class="flex-item-location">
       <block wx:if="{{item.location}}"> at {{item.location}}</block> 
     </view>
+    </block>
+    <!--discription + price + location  -->
+
     <!-- HEAD PART  -->
 
     <!-- BODY PART  -->
@@ -73,6 +78,9 @@
         <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendLike'>
         ❤ {{item.num_likes}}人
         </view>
+        <!-- <view wx:if="{{item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendUnlike'>
+        ❤ {{item.num_likes}}+1人
+        </view> -->
         <!--like  -->
         <!--comment  -->
         <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='commentItem'>

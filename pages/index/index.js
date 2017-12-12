@@ -17,7 +17,8 @@ Page({
     is_loading: true,
     is_pulldown: false,
     active_no_more_item: false,
-    share_index: 0
+    share_index: 0,
+    check_liked: []
   },
 
   /**
@@ -31,7 +32,9 @@ Page({
     //   title: 'JING MA 精妈'
     // })
 
-    jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start )
+    jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start, app.globalData.email, app.globalData.token )
+
+    
 
     // Set token to data local
     // console.log("TEST Res store globalData >>>")
@@ -208,6 +211,7 @@ Page({
     console.log("LIKE item_id >>>")
     console.log(_item_id)
 
+
     wx.request({
       success: function (res) {
         try {
@@ -223,10 +227,16 @@ Page({
 
           // Change to like
           wx.showToast({
-            title: 'Success',
+            title: 'Liked',
             icon: 'success',
             duration: 1000
           })
+
+          setTimeout(function () {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+          }, 500)
 
 
         } catch (e) {
@@ -245,7 +255,64 @@ Page({
         item_id: _item_id
       }
     })
+  },
+  sendUnlike: function (e) {
+    let that = this
+    let data = e.currentTarget.dataset
+    let index = data.index
+
+    let _item_id = that.data.items[index].id
+    console.log("UNLIKE item_id >>>")
+    console.log(_item_id)
 
 
+    wx.request({
+      success: function (res) {
+        try {
+          console.log("Res from server: ")
+          console.log(res)
+
+          // switch that like active and plus one at that item
+
+          // console.log("done for post to API")
+          // that.setData({
+          //   items: 
+          // })
+          that.data.items[index].liked_by_current_user = false
+          console.log("check change unlike >>")
+          console.log(that.data.items[index].liked_by_current_user)
+
+          // Change to like
+          wx.showToast({
+            title: 'Unliked',
+            icon: 'success',
+            duration: 1000
+          })
+
+          setTimeout(function () {
+            wx.reLaunch({
+              url: '/pages/index/index'
+            })
+          }, 500)
+
+
+        } catch (e) {
+          console.log(e)
+        }
+      },
+
+      url: 'https://jingma.shanghaiwogeng.com/api/v1/likes/unlike',
+      method: "post",
+      header: {
+        'content-type': 'application/json',
+        'X-User-Email': app.globalData.email,
+        'X-User-Token': app.globalData.token
+      },
+      data: {
+        item_id: _item_id
+      }
+    })
   }
+
+
 })

@@ -69,7 +69,7 @@ function fetchItemDetail(url, id, cb) {
 
 
 
-function fetchItemsRecent(url, page, cb) {
+function fetchItemsRecent(url, page, email, token, cb) {
   let that = this;
   const app = getApp();
 
@@ -78,6 +78,14 @@ function fetchItemsRecent(url, page, cb) {
       is_pulldown: false
     })
   }, 500)
+
+  console.log("check email + token :")
+  console.log(email)
+  console.log(token)
+  let _email = email 
+  let _token = token 
+  console.log(_email)
+  console.log(_token)
 
   console.log("HasMore:" + that.data.hasMore)
   console.log("URL:" + url)
