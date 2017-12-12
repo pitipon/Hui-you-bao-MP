@@ -8,20 +8,22 @@ AV.init({
 });
 // Lean cloud ---
 
+const config = require('./comm/script/config.js');
+
 App({
   onLaunch: function () {
     // WX code
     let app = this;
     let salmon2 = "mo2"
-    
+
     wx.login({
       success: function (res) {
         console.log("RES from wechat:")
         console.log(res)
 
         if (res.code) {
-  
-          
+
+
           // console.log("wanna eat salmon")
           app.getUserInfo( (userInfoFromCallBackHell) => {
               // console.log("Print userinfo callback hell:")
@@ -34,7 +36,7 @@ App({
 
                     wx.setStorageSync('token', res.data.authentication_token)
                     wx.setStorageSync('currentUserId', res.data.id)
-                    
+
                     app.globalData.token = res.data.authentication_token
                     app.globalData.currentUserId = res.data.id
                     app.globalData.email = res.data.email
@@ -49,7 +51,7 @@ App({
                   }
                 },
 
-                url: 'https://jingma.shanghaiwogeng.com/api/v1/users',
+                url: config.baseUrl + '/api/v1/users',
                 method: "post",
                 header: {
                   'content-type': 'application/json'
@@ -72,7 +74,7 @@ App({
           //发起网络请求
           // console.log("Yes..We got code from RES")
           // console.log("Global Data before RES")
-          
+
         } else {
           console.log('error' + res.errMsg)
         }
@@ -85,7 +87,7 @@ App({
         //       // console.log(res)
         //       app.globalData.items = res.data.items
         //       console.log(app.globalData.items)
-        //       console.log("INDEX API SUCCESS")          
+        //       console.log("INDEX API SUCCESS")
         //     } catch (e) {
         //       console.log(e)
         //     }

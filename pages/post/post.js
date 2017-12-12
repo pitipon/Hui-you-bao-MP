@@ -2,6 +2,7 @@
 
 const AV = require('../../utils/av-weapp-min.js');
 const app = getApp()
+const config = require('../../comm/script/config');
 
 Page({
 
@@ -59,7 +60,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**
@@ -70,7 +71,7 @@ Page({
     console.log("that >> ")
     console.log(that)
     console.log(that.data.is_take_photo)
-    if(!that.data.is_take_photo) 
+    if(!that.data.is_take_photo)
     {
       // Mark as already take picture
       that.data.is_take_photo = true
@@ -143,7 +144,6 @@ Page({
     let _latitude = this.data.latitude
     let _longitude = this.data.longitude
 
-
     wx.request({
       success: function (res) {
         try {
@@ -165,7 +165,7 @@ Page({
           })
 
           // Clear ITEM after done post
-          
+
           that.data.haveImage = false
           that.data.is_sending = false
           that.data.imageSrc = ""
@@ -181,14 +181,14 @@ Page({
             })
           }, 500)
 
-          
+
 
         } catch (e) {
           console.log(e)
         }
       },
 
-      url: 'https://jingma.shanghaiwogeng.com/api/v1/items',
+      url: config.baseUrl + '/api/v1/items',
       method: "post",
       header: {
         'content-type': 'application/json',
@@ -211,7 +211,7 @@ Page({
     })
 
 
-    
+
   },
   switch1Change: function (e) {
     console.log('switch1 has experienced a change event, the value brought is', e.detail.value)
@@ -223,7 +223,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-   
+
   },
 
   /**
@@ -254,7 +254,7 @@ Page({
 
   },
   takePicture: function (e) {
-    console.log("take a picture") 
+    console.log("take a picture")
     var that = this
 
 
@@ -305,7 +305,7 @@ Page({
 
     wx.chooseLocation({
       success: function (res) {
-        console.log(res) 
+        console.log(res)
         that.setData({
           value_location: res.name,
           value_latitude: res.latitude,

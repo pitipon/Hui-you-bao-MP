@@ -29,9 +29,8 @@ Page({
     }
     // ###Set userInfo to local data
 
-    console.log("Profile >>>>>")
     // Fetch items from user
-    jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start)
+    jinma.fetchItemsRecent.call(that, config.apiList.itemsForCurrentUser, that.data.start)
 
   },
 
