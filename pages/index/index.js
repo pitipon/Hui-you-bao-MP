@@ -198,5 +198,54 @@ Page({
       current: that.data.items[index].image_url, // image url that want to preview
       urls: [that.data.items[index].image_url]  // Lists of all images that need to proview
     })
+  },
+  sendLike: function (e) {
+    let that = this
+    let data = e.currentTarget.dataset
+    let index = data.index
+
+    let _item_id = that.data.items[index].id
+    console.log("LIKE item_id >>>")
+    console.log(_item_id)
+
+    wx.request({
+      success: function (res) {
+        try {
+          console.log("Res from server: ")
+          console.log(res)
+
+          // switch that like active and plus one at that item
+
+          // console.log("done for post to API")
+          // that.setData({
+          //   loading: !that.data.loading
+          // })
+
+          // Change to like
+          wx.showToast({
+            title: 'Success',
+            icon: 'success',
+            duration: 1000
+          })
+
+
+        } catch (e) {
+          console.log(e)
+        }
+      },
+
+      url: 'https://jingma.shanghaiwogeng.com/api/v1/likes/like',
+      method: "post",
+      header: {
+        'content-type': 'application/json',
+        'X-User-Email': app.globalData.email,
+        'X-User-Token': app.globalData.token
+      },
+      data: {
+        item_id: _item_id
+      }
+    })
+
+
   }
 })

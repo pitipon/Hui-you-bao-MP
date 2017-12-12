@@ -71,7 +71,7 @@
     <view class="flex-item-bottom">
        
         <!--like  -->
-        <view class='flex-bottom-item'>
+        <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendLike'>
         ❤ {{item.num_likes}}人
         </view>
         <!--like  -->
