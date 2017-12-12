@@ -36,12 +36,9 @@ function getItemComment(id, cb) {
 
 
 function fetchItemDetail(url, id, cb) {
-  let that = this
-
-  console.log("URL:" + url)
-  console.log("Item id:" + id)
-
-  // ### Sent GET request
+  let that = this;
+  
+  // ### Send GET request
   wx.request({
     url: url + id,
     method: "get",
@@ -50,9 +47,6 @@ function fetchItemDetail(url, id, cb) {
     },
     success: function (res) {
       try {
-        console.log("Result of Item detail: ")
-        console.log(res)
-
         that.setData({
           item: res.data
         })
@@ -76,9 +70,8 @@ function fetchItemDetail(url, id, cb) {
 
 
 function fetchItemsRecent(url, page, cb) {
-  let that = this
-
-  
+  let that = this;
+  const app = getApp();
 
   setTimeout(function () {
     that.setData({
@@ -89,15 +82,21 @@ function fetchItemsRecent(url, page, cb) {
   console.log("HasMore:" + that.data.hasMore)
   console.log("URL:" + url)
   console.log("Page:" + page)
-  console.log("cb:" + typeof cb === 'function')
+  console.log("cb:" + typeof cb === 'function');
+  console.log("Start: " + that.data.start);
 
   if (that.data.hasMore) {
   // ### Sent GET request
   wx.request({
-    url: url + that.data.start,
+    url: url,
     method: "get",
+    data: {
+      page: this.data.start
+    },
     header: {
-      "Content-Type": "application/json,application/json"
+      "Content-Type": "application/json",
+      'X-User-Email': app.globalData.email,
+      'X-User-Token': app.globalData.token
     },
     success: function (res) {
       try {
