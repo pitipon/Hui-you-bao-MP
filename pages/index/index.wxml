@@ -9,7 +9,6 @@
  
  </view>
 
-
   <!--  LOOP BLOCK FOR ALL CARDS -->
 <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
 <!--CARDDDDDDD SECTION  -->

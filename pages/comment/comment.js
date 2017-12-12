@@ -34,11 +34,11 @@ Page({
     let item_id = ""
     item_id = option.id.toString()
     console.log(item_id)
-    
+
     that.setData({
       item_id: option.id
     })
-   
+
 
     // Fetch all of data of comment in this item_id
     // and show on HTML page
@@ -88,13 +88,13 @@ Page({
             loading: !that.data.loading
           })
 
-          
 
-          
+
+
             wx.reLaunch({
               url: '/pages/comment/comment?id=' + that.data.item_id
             })
-          
+
 
 
 
@@ -103,7 +103,7 @@ Page({
         }
       },
 
-      url: 'https://jingma.shanghaiwogeng.com/api/v1/items/' + _item_id + '/comments',
+      url: config.baseUrl + '/api/v1/items/' + _item_id + '/comments',
       method: "post",
       header: {
         'content-type': 'application/json',
@@ -125,48 +125,48 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })
