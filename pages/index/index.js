@@ -229,6 +229,17 @@ Page({
     console.log("LIKE item_id >>>")
     console.log(_item_id)
 
+    let new_item = that.data.items[index] 
+    new_item.liked_by_current_user = true
+
+    let new_items = that.data.items
+    new_items[index] = new_item
+
+    // that.setData({
+    //   items: new_items
+    // })
+
+    
 
     wx.request({
       success: function (res) {
@@ -250,11 +261,15 @@ Page({
             duration: 1000
           })
 
-          setTimeout(function () {
-            wx.reLaunch({
-              url: '/pages/index/index'
-            })
-          }, 500)
+          // setTimeout(function () {
+          //   wx.reLaunch({
+          //     url: '/pages/index/index'
+          //   })
+          // }, 500)
+
+          that.setData({
+            items: new_items
+          })
 
 
         } catch (e) {
@@ -283,6 +298,12 @@ Page({
     console.log("UNLIKE item_id >>>")
     console.log(_item_id)
 
+    let new_item = that.data.items[index]
+    new_item.liked_by_current_user = false
+
+    let new_items = that.data.items
+    new_items[index] = new_item
+
 
     wx.request({
       success: function (res) {
@@ -307,11 +328,15 @@ Page({
             duration: 1000
           })
 
-          setTimeout(function () {
-            wx.reLaunch({
-              url: '/pages/index/index'
-            })
-          }, 500)
+          // setTimeout(function () {
+          //   wx.reLaunch({
+          //     url: '/pages/index/index'
+          //   })
+          // }, 500)
+
+          that.setData({
+            items: new_items
+          })
 
 
         } catch (e) {

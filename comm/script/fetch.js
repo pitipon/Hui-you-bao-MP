@@ -50,6 +50,8 @@ function fetchItemDetail(url, id, cb) {
         that.setData({
           item: res.data
         })
+
+        console.log(that.data.item)
         
         typeof cb == 'function' && cb(res.data)
 

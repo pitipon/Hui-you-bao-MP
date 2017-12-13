@@ -89,12 +89,12 @@
     <view class="flex-item-bottom">
        
         <!--like  -->
-        <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendLike'>
+        <view wx:if="{{!item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendLike'>
         ❤ {{item.num_likes}}人
         </view>
-        <!-- <view wx:if="{{item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendUnlike'>
-        ❤ {{item.num_likes}}+1人
-        </view> -->
+         <view wx:if="{{item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendUnlike'>
+        ❤ {{item.num_likes}}人+1
+        </view> 
         <!--like  -->
         <!--comment  -->
         <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='commentItem'>
