@@ -46,6 +46,26 @@ Page({
     jinma.getItemComment.call(that,  item_id )
 
   },
+  goBack: function(e) {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  goHome: function(e) {
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  },
+  goPost: function(e) {
+    wx.reLaunch({
+      url: '/pages/post/post'
+    })
+  },
+  goProfile: function(e) {
+    wx.reLaunch({
+      url: '/pages/profile/profile'
+    })
+  },
   bindFormSubmit: function (e) {
     // 1. enable the loading animation on send button
     let that = this
