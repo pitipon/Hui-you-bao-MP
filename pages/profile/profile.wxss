@@ -1,4 +1,19 @@
 
+
+.pull-down-center {
+  text-align: center;
+}
+
+.pull-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+
+
 /*FOR BOTTOM TAB  */
 
 .blank-item {

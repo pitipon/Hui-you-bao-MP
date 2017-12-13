@@ -20,6 +20,13 @@
     </view>
 
 
+<view wx:if='{{active_no_more_item && !is_loading}}' class="pull-down-center">
+
+    <image class='pull-avatar' src='../../dist/images/dog.png'></image>
+
+</view>
+
+
 <!--blank item for padding item from bottom  -->
 <view class='blank-item'></view>
 

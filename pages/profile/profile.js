@@ -72,6 +72,30 @@ Page({
       current: that.data.items[index].image_url, // image url that want to preview
       urls: [that.data.items[index].image_url]  // Lists of all images that need to proview
     })
+  },
+  onReachBottom: function () {
+
+    var that = this
+    console.log(that.data.hasMore)
+    if (!that.data.hasMore) {
+      // show message "no more item"
+      that.setData({
+        active_no_more_item: true
+      })
+
+    }
+
+    if (!that.data.is_loading && that.data.hasMore) {
+      // !that.data.is_loading  >> Prevent first time load home page
+      // that.data.hasMore
+      console.log("Hey .. I am reach bottom")
+
+      that.setData({
+        is_loading: true
+      })
+      jinma.fetchItemsRecent.call(that, config.apiList.itemsForCurrentUser, that.data.start)
+    }
+
   }
 })
 
