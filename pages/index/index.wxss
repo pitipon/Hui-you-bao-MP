@@ -1,5 +1,7 @@
-/* pages/group/group.wxss */
 
+.post-align {
+  text-align: center;
+}
 
 .avatar {
   width: 40px;

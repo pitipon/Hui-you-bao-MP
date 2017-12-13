@@ -18,7 +18,8 @@ Page({
     is_pulldown: false,
     active_no_more_item: false,
     share_index: 0,
-    check_liked: []
+    check_liked: [],
+    userInfo: {},
   },
 
   /**
@@ -31,6 +32,15 @@ Page({
     // wx.setNavigationBarTitle({
     //   title: 'JING MA 精妈'
     // })
+
+    // ###Set userInfo to local data
+    if (app.globalData.userInfo != null) {
+      that.setData({
+        userInfo: app.globalData.userInfo
+      })
+    } else {
+      app.getUserInfo()
+    }
 
     jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start)
 
@@ -201,6 +211,14 @@ Page({
       current: that.data.items[index].image_url, // image url that want to preview
       urls: [that.data.items[index].image_url]  // Lists of all images that need to proview
     })
+  },
+  takePicture: function () {
+    // console.log("test")
+
+    wx.reLaunch({
+      url: '/pages/post/post'
+    })
+
   },
   sendLike: function (e) {
     let that = this

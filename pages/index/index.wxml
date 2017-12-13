@@ -1,13 +1,25 @@
 <!--pages/group/group.wxml-->
 
-<!-- <view class="title">Recent | Popular | Category</view> -->
- 
+<!-- PULL DOWN - with corgi  -->
  <view wx:if="{{is_pulldown}}"  class="pull-down-center">
- 
- 
   <image class='pull-avatar' src='../../dist/images/dog.png'></image>
- 
  </view>
+ <!-- PULL DOWN - with corgi  -->
+
+
+
+<!-- SHORT-CUT for POST  -->
+<view wx:if="{{items}}" class="card"  bindtap="takePicture">
+  <view class="flex-wrp post-align" >
+        <view class="card-head-left ">
+        <image class="avatar" src="../../dist/images/camera.jpg"></image>
+    </view>
+  </view>
+</view>
+<!-- SHORT-CUT for POST  -->
+
+
+
 
   <!--  LOOP BLOCK FOR ALL CARDS -->
 <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
@@ -51,6 +63,8 @@
          <!-- HEAD RIGHT (name + discount)  -->
       </view>
     </view>
+    <!-- HEAD PART  -->
+
     <!--discription + price + location  -->
     <block >
     <view class="flex-item-msg">

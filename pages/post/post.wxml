@@ -60,25 +60,14 @@
       <!-- PRICE and DISCOUNT ROW -->
      
     <!--LOCATION ROW  -->
-      <view class='row-container'>
-
-        <!-- PHOTO ICON in second row -->
-        <!-- <view class="flex-item-photo">
-              <view class='row-container border-right' bindtap="takePicture">
-                       <view class='image-center' >
-          <image class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
-                      </view>
-              <view class='photo-text'>拍摄</view>
-              </view>
-
-        </view> -->
-         
+      <view class='row-container'  bindtap="pinLocation">
 
         <view class='flex-item-location'>
                   <!-- LOCATION ICON : in second row  -->
                 <view class='row-container' bindtap="pinLocation">
                     <view class='image-center location-padding' >
-                        <image class="avatar"   src="../../dist/images/location.jpg" bindtap="pinLocation"></image> 
+                        <image wx:if="{{!value_location}}" class="avatar"   src="../../dist/images/location.jpg" bindtap="pinLocation"></image> 
+                        <image wx:if="{{value_location}}" class="avatar"   src="../../dist/images/location-active.jpg" bindtap="pinLocation"></image> 
                     </view>
 
                     <view class='location-text'>地点</view>
@@ -96,23 +85,20 @@
     
     
   <!-- CATEGORY - ROW  -->
-      <view class='row-container'>
+      <view class='row-container' >
+      
 
       <!-- CATEGORY - Part1  -->
       <view class="flex-category1 ">
           <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
-          <!-- <view class='category1-padding'>
           
-             <view class='category-text'>品类</view>
-          </view> -->
           <view class='row-container' >
-                    <view class='image-center location-padding' >
-                        <image class="avatar"   src="../../dist/images/category.jpg" ></image> 
-                    </view>
-
-                    <view class='location-text'>品类</view>
-                 </view>
-
+              <view  class='image-center location-padding' >
+                  <image wx:if="{{index==0}}" class="avatar"   src="../../dist/images/category.jpg" ></image> 
+                  <image wx:if="{{index!=0}}" class="avatar"   src="../../dist/images/category-active.jpg" ></image> 
+              </view>
+              <view class='location-text'>品类</view>
+          </view>
 
         </picker>
          
@@ -143,17 +129,12 @@
   <!-- CATEGORY - ROW  -->
 
 
-            
+
 
 <!-- Contain pic after take picture  -->
 <view class='flex-container-image' wx:if="{{!haveImage}}">
 <view class="flex-item-photo">
-              <view class='row-container border-right' bindtap="takePicture">
-                       <view class='image-center' >
-          <image class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
-                      </view>
-              <view class='photo-text'>拍摄</view>
-              </view>
+              
 
         </view>
 </view>
@@ -186,24 +167,22 @@
           <!--finish sending  -->
       </view>
 
-      
-
 </view>
+<!-- Contain pic after take picture  -->
+
+<!-- Take picture - ROW  -->
+<view class='row-container' bindtap="takePicture">
+  <view class='row-container' bindtap="takePicture">
+    <view class='image-center location-padding' >
+      <image wx:if="{{!haveImage}}" class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
+      <image wx:if="{{haveImage}}" class="avatar"   src="../../dist/images/camera-active.jpg" bindtap="takePicture"></image> 
+    </view>
+    <view class='location-text'>拍摄</view>
+  </view>
+</view>
+<!-- Take picture - ROW  -->
 
 
-
-      <!--## Show Image V.1   -->
-       <!-- <view class='img-container' >
-          <image wx:if="{{haveImage}}" class="" src="{{imageUrl}}"></image>
-      </view>  -->
-      <!--## Show Image V.1   -->
-
-      <!--## Show Image V.2   -->
-       <!-- <view class='flex-container-image' wx:if="{{haveImage}}">
-        <view class='flex-item-image' style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{imageUrl}}')">
-        </view>
-      </view>  -->
-      <!--## Show Image V.2   -->
 </view>
             
 <button wx:if="{{haveImage}}" class='padding-share' type="primary" form-type="submit" loading="{{loading}}" >发送</button>

@@ -29,7 +29,7 @@
         },
         {
           "pagePath": "pages/post/post",
-          "iconPath": "dist/images/post-active.png",
+          "iconPath": "dist/images/post5.png",
           "selectedIconPath": "dist/images/post-active.png"
         },
         {
