@@ -24,7 +24,7 @@
   <!--  LOOP BLOCK FOR ALL CARDS -->
 <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
 <!--CARDDDDDDD SECTION  -->
-<view wx:if="{{!item.is_private && (item.image_url)}}" class="card">
+<view wx:if="{{!item.is_private && (item.image_url || item.description )}}" class="card">
   <view class="flex-wrp">
 
     <!-- HEAD PART  -->
@@ -66,7 +66,7 @@
     <!-- HEAD PART  -->
 
     <!--discription + price + location  -->
-    <block >
+    <block wx:if="{{item.description || item.price || item.location}}">
     <view class="flex-item-msg">
       <block wx:if="{{item.description}}">{{item.description}}</block>
       <block wx:if="{{item.description && item.price}}">  , </block>
