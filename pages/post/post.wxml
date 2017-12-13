@@ -40,46 +40,9 @@
       </view>
       <!--FIRST ROW  -->
       
-      <!--SECOND ROW  -->
-      <view class='row-container'>
+      
 
-        <!-- PHOTO ICON in second row -->
-        <view class="flex-item-photo">
-              <view class='row-container border-right' bindtap="takePicture">
-                       <view class='image-center' >
-          <image class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
-                      </view>
-              <view class='photo-text'>拍摄</view>
-              </view>
-
-        </view>
-         
-
-        <view class='flex-item-location'>
-                  <!-- LOCATION ICON : in second row  -->
-                <view class='row-container' bindtap="pinLocation">
-                    <view class='image-center location-padding' >
-                        <image class="avatar"   src="../../dist/images/location.jpg" bindtap="pinLocation"></image> 
-                    </view>
-
-                    <view class='location-text'>地点</view>
-                 </view>
-        </view>
-
-     
-              
-
-           
-
-             
-                 <!-- LOCATION INPUT : in second row  -->
-          <view class="flex-item-location2">
-                      <input name="location" class="location-input"  value="{{value_location}}" placeholder="" placeholder-class="location-placeholder" type="text" maxlength='28'/>
-          </view> 
-
-      </view>
-      <!--SECOND ROW  -->
-
+      <!-- PRICE and DISCOUNT ROW -->
       <view class='row-container'>
             <view class="box-price">
               <view class='header-text'>价格 (元)</view>
@@ -94,27 +57,70 @@
             </view>
 
       </view>
-      
+      <!-- PRICE and DISCOUNT ROW -->
      
-          
+    <!--LOCATION ROW  -->
+      <view class='row-container'>
+
+        <!-- PHOTO ICON in second row -->
+        <!-- <view class="flex-item-photo">
+              <view class='row-container border-right' bindtap="takePicture">
+                       <view class='image-center' >
+          <image class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
+                      </view>
+              <view class='photo-text'>拍摄</view>
+              </view>
+
+        </view> -->
+         
+
+        <view class='flex-item-location'>
+                  <!-- LOCATION ICON : in second row  -->
+                <view class='row-container' bindtap="pinLocation">
+                    <view class='image-center location-padding' >
+                        <image class="avatar"   src="../../dist/images/location.jpg" bindtap="pinLocation"></image> 
+                    </view>
+
+                    <view class='location-text'>地点</view>
+                 </view>
+        </view>
+
+             
+                 <!-- LOCATION INPUT : in second row  -->
+          <view wx:if="{{value_location}}" class="flex-item-location2">
+                      <input name="location" class="location-input"  value="{{value_location}}" placeholder="" placeholder-class="location-placeholder" type="text" maxlength='28'/>
+          </view> 
+
+      </view>
+      <!--LOCATION ROW  -->
     
     
   <!-- CATEGORY - ROW  -->
       <view class='row-container'>
 
       <!-- CATEGORY - Part1  -->
-      <view class="flex-category1 border-right-only">
+      <view class="flex-category1 ">
           <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
-          <view class='category1-padding'>
+          <!-- <view class='category1-padding'>
+          
              <view class='category-text'>品类</view>
-          </view>
+          </view> -->
+          <view class='row-container' >
+                    <view class='image-center location-padding' >
+                        <image class="avatar"   src="../../dist/images/category.jpg" ></image> 
+                    </view>
+
+                    <view class='location-text'>品类</view>
+                 </view>
+
+
         </picker>
          
       </view>
       <!-- CATEGORY - Part1  -->
 
       <!-- CATEGORY - Part2  -->
-      <view class="flex-category2">
+      <view wx:if="{{index!=0}}" class="flex-category2">
         <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
           <view class='picker'>
             {{categories[index]}}
@@ -124,7 +130,7 @@
       <!-- CATEGORY - Part2  -->
 
       <!-- CATEGORY - Part3  -->
-      <view class="flex-category3">
+      <view wx:if="{{index!=0}}" class="flex-category3">
         <picker name="category" value="{{value}}" range="{{categories}}" bindchange="bindPickerChange" class="box-picker">
           <view class='category3-padding'>
              <image class="avatar-category"   src="../../dist/images/arrow-down.jpg" ></image> 
@@ -140,6 +146,17 @@
             
 
 <!-- Contain pic after take picture  -->
+<view class='flex-container-image' wx:if="{{!haveImage}}">
+<view class="flex-item-photo">
+              <view class='row-container border-right' bindtap="takePicture">
+                       <view class='image-center' >
+          <image class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
+                      </view>
+              <view class='photo-text'>拍摄</view>
+              </view>
+
+        </view>
+</view>
 <view class='flex-container-image' wx:if="{{is_sending || haveImage}}">
 
       
