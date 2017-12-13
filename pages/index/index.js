@@ -32,7 +32,7 @@ Page({
     //   title: 'JING MA 精妈'
     // })
 
-    jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start, app.globalData.email, app.globalData.token )
+    jinma.fetchItemsRecent.call(that, config.apiList.recent, that.data.start)
 
     
 
@@ -115,7 +115,7 @@ Page({
         is_loading: true,
         is_pulldown: true
       })
-      this.onLoad()
+      that.onLoad()
   },
 
   /**

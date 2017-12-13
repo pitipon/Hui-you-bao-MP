@@ -69,7 +69,7 @@ function fetchItemDetail(url, id, cb) {
 
 
 
-function fetchItemsRecent(url, page, email, token, cb) {
+function fetchItemsRecent(url, page, cb) {
   let that = this;
   const app = getApp();
 
@@ -79,13 +79,7 @@ function fetchItemsRecent(url, page, email, token, cb) {
     })
   }, 500)
 
-  console.log("check email + token :")
-  console.log(email)
-  console.log(token)
-  let _email = email 
-  let _token = token 
-  console.log(_email)
-  console.log(_token)
+ 
 
   console.log("HasMore:" + that.data.hasMore)
   console.log("URL:" + url)
@@ -99,7 +93,7 @@ function fetchItemsRecent(url, page, email, token, cb) {
     url: url,
     method: "get",
     data: {
-      page: this.data.start
+      page: that.data.start
     },
     header: {
       "Content-Type": "application/json",

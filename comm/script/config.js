@@ -1,6 +1,6 @@
 // const url = 'https://jinma.herokuapp.com'
 const url = 'https://jingma.shanghaiwogeng.com'
-//const url = 'http://localhost:3000';
+// const url = 'http://localhost:3000';
 module.exports = {
   baseUrl: url,
   apiList: {

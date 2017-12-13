@@ -52,7 +52,7 @@
       </view>
     </view>
     <!--discription + price + location  -->
-    <block wx:if="{{item.description && item.price && item.location}}">
+    <block >
     <view class="flex-item-msg">
       <block wx:if="{{item.description}}">{{item.description}}</block>
       <block wx:if="{{item.description && item.price}}">  , </block>
