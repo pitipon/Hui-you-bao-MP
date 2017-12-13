@@ -135,3 +135,15 @@
     <image class='pull-avatar' src='../../dist/images/dog.png'></image>
 
 </view>
+
+
+<!--blank item for padding item from bottom  -->
+<view class='blank-item'></view>
+
+<view class='nav'>
+  <view class='salmon-container'>
+     <image class="avatar-tab"   src="../../dist/images/feed-active.png" bindtap="goHome"></image> 
+     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
+     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+  </view>
+</view>

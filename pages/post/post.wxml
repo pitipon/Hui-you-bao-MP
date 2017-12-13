@@ -188,3 +188,14 @@
 <button wx:if="{{haveImage}}" class='padding-share' type="primary" form-type="submit" loading="{{loading}}" >发送</button>
 
 </form>
+
+<!--blank item for padding item from bottom  -->
+<view class='blank-item'></view>
+
+<view class='nav'>
+  <view class='salmon-container'>
+     <image class="avatar-tab"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
+     <image class="avatar-tab"   src="../../dist/images/post-active.png" bindtap="goPost"></image> 
+     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+  </view>
+</view>

@@ -63,14 +63,17 @@
       
 </view>
 
+<!--blank item for padding item from bottom  -->
+<view class='blank-item'></view>
+
 <view class='nav-back'>
   <image class="avatar-back"   src="../../dist/images/back.png" bindtap="goBack"></image>
 </view>
 
 <view class='nav'>
   <view class='salmon-container'>
-     <image class="avatar"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
-     <image class="avatar"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
-     <image class="avatar"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+     <image class="avatar-tab"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
+     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
+     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
   </view>
 </view>

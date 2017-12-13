@@ -49,6 +49,26 @@ Page({
       urls: [that.data.item.image_url]  // Lists of all images that need to proview
     })
   },
+  goBack: function (e) {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  goHome: function (e) {
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  },
+  goPost: function (e) {
+    wx.reLaunch({
+      url: '/pages/post/post'
+    })
+  },
+  goProfile: function (e) {
+    wx.reLaunch({
+      url: '/pages/profile/profile'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

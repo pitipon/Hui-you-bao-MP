@@ -33,6 +33,26 @@ Page({
     jinma.fetchItemsRecent.call(that, config.apiList.itemsForCurrentUser, that.data.start)
 
   },
+  goBack: function (e) {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  goHome: function (e) {
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  },
+  goPost: function (e) {
+    wx.reLaunch({
+      url: '/pages/post/post'
+    })
+  },
+  goProfile: function (e) {
+    wx.reLaunch({
+      url: '/pages/profile/profile'
+    })
+  },
 
 
   onPullDownRefresh: function () {

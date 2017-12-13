@@ -79,6 +79,26 @@ Page({
     // #########Set items data from app.js
 
   },
+  goBack: function (e) {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  goHome: function (e) {
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  },
+  goPost: function (e) {
+    wx.reLaunch({
+      url: '/pages/post/post'
+    })
+  },
+  goProfile: function (e) {
+    wx.reLaunch({
+      url: '/pages/profile/profile'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -256,7 +276,7 @@ Page({
 
           // Change to like
           wx.showToast({
-            title: 'Liked',
+            title: '赞',
             icon: 'success',
             duration: 1000
           })
@@ -322,11 +342,11 @@ Page({
           console.log(that.data.items[index].liked_by_current_user)
 
           // Change to like
-          wx.showToast({
-            title: 'Unliked',
-            icon: 'success',
-            duration: 1000
-          })
+          // wx.showToast({
+          //   title: '取消',
+          //   icon: 'success',
+          //   duration: 1000
+          // })
 
           // setTimeout(function () {
           //   wx.reLaunch({

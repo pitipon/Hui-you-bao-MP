@@ -14,31 +14,6 @@
     "navigationBarTitleText": "惠优宝 hui you bao",
     "navigationBarTextStyle":"#ffffff",
     "enablePullDownRefresh": true
-  },
-    "tabBar": {
-      "backgroundColor": "#ffffff",
-      "borderStyle": "#ffffff",
-      "selectedColor": "#C1C1C1",
-      "color": "#C1C1C1",
-      "list": [
-        {
-          "pagePath": "pages/index/index",
-          "iconPath": "dist/images/feed.png",
-          "selectedIconPath": "dist/images/feed-active.png",
-          "text": "首页"
-        },
-        {
-          "pagePath": "pages/post/post",
-          "iconPath": "dist/images/post5.png",
-          "selectedIconPath": "dist/images/post-active.png"
-        },
-        {
-          "pagePath": "pages/profile/profile",
-          "iconPath": "dist/images/profile.png",
-          "selectedIconPath": "dist/images/profile-active.png",
-          "text": "我的"
-        }
-      ]
-    }
   }
+}
 

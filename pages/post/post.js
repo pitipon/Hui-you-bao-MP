@@ -23,7 +23,7 @@ Page({
     is_sending: false,
     imageSrc: "",
     imageUrl: "",
-    categories: ['none','食品', '女装', '男装', '珠宝配饰', '美妆', '护肤', '旅行', '家电', '电子数码', '休闲娱乐', '户外运动', '箱包', '图书', '办公用品', '家居家装','母婴用品'],
+    categories: ['-','食品', '女装', '男装', '珠宝配饰', '美妆', '护肤', '旅行', '家电', '电子数码', '休闲娱乐', '户外运动', '箱包', '图书', '办公用品', '家居家装','母婴用品'],
     index: 0,
     loading: false,
     is_public: true,
@@ -54,6 +54,26 @@ Page({
     } else {
       app.getUserInfo()
     }
+  },
+  goBack: function (e) {
+    wx.navigateBack({
+      delta: 1
+    })
+  },
+  goHome: function (e) {
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
+  },
+  goPost: function (e) {
+    wx.reLaunch({
+      url: '/pages/post/post'
+    })
+  },
+  goProfile: function (e) {
+    wx.reLaunch({
+      url: '/pages/profile/profile'
+    })
   },
 
   /**
@@ -127,7 +147,7 @@ Page({
 
     // 2. show a Loading toast
     wx.showToast({
-      title: 'Sending...',
+      title: '正在发送...',
       icon: 'loading',
       duration: 1500
     })
@@ -159,7 +179,7 @@ Page({
           })
 
           wx.showToast({
-              title: 'Success',
+            title: '已发送',
               icon: 'success',
               duration: 1000
           })
