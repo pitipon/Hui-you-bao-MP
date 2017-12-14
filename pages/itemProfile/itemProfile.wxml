@@ -1,6 +1,14 @@
 <!--pages/group/group.wxml-->
 
- <image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image>  
+<view class='salmon-container salmon-left' bindtap="goHome"> 
+    
+    <view class='salmon-container'>
+    <image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image> 
+    
+    <view class='salmon-text'>首页</view>
+    </view>
+</view>
+
 
 <!-- <view bindtap='deleteItem'> DELETEEEEEEEEEEEEE</view> -->
 <!--CARDDDDDDD SECTION  -->

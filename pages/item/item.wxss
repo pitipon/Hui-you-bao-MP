@@ -1,8 +1,20 @@
 .icon-back {
-  width: 74px;
-  height: 30px;
+  padding-top: 4px;
+  width: 22px;
+  height: 20px;
   opacity: 0.5;
 }
+
+.salmon-left {
+  text-align: left;
+  justify-content: flex-start !important;
+}
+
+.salmon-text {
+  font-size: 18px;
+  color: #aaa;
+}
+
 
 .detail-font-head {
   padding-top: 5px;
