@@ -7,7 +7,8 @@
     "pages/test/test",
     "pages/share/share",
     "pages/comment/comment",
-    "pages/item/item"
+    "pages/item/item",
+    "pages/itemProfile/itemProfile"
   ],
   "window":{
     "backgroundTextStyle":"light",

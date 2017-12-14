@@ -59,7 +59,7 @@ Page({
     let index = data.index
     let item_id = that.data.items[index].id
 
-    let _url = '/pages/item/item?id=' + item_id
+    let _url = '/pages/itemProfile/itemProfile?id=' + item_id
 
     console.log("goProfileItem - Index >>")
     console.log(index)

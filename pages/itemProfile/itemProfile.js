@@ -78,6 +78,59 @@ Page({
       url: '/pages/profile/profile'
     })
   },
+  deleteItem: function () {
+    let that = this 
+    console.log("delete")
+
+
+    let _item_id = that.data.item_id
+    console.log("LIKE item_id >>>")
+    console.log(_item_id)
+
+    let _url = 'https://jingma.shanghaiwogeng.com/api/v1/items/' + _item_id
+
+    console.log(_url)
+
+
+    wx.request({
+      success: function (res) {
+        try {
+          console.log("(DELETE)Res from server: ")
+          console.log(res)
+
+        
+
+          // Change to like
+          wx.showToast({
+            title: 'Delete',
+            icon: 'success',
+            duration: 1000
+          })
+
+          wx.reLaunch({
+            url: '/pages/profile/profile'
+          })
+
+
+        } catch (e) {
+          console.log(e)
+        }
+      },
+
+      url: _url,
+      method: "delete",
+      header: {
+        'content-type': 'application/json',
+        'X-User-Email': app.globalData.email,
+        'X-User-Token': app.globalData.token
+      }
+    })
+
+
+
+
+
+  },
   bindFormSubmit: function (e) {
 
     let that = this
@@ -186,16 +239,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  commentItem: function (e) {
-    let that = this
-    let data = e.currentTarget.dataset
-    let index = data.index
-
-    let _url = '/pages/comment/comment?id=' + that.data.items[index].id
-    wx.navigateTo({
-      url: _url
-    })
-  },
   shareMessage: function (e) {
     let that = this
 
@@ -220,7 +263,7 @@ Page({
   previewImage: function (e) {
     let that = this
     var data = e.currentTarget.dataset
-
+  
     wx.previewImage({
       current: that.data.item.image_url, // image url that want to preview
       urls: [that.data.item.image_url]  // Lists of all images that need to proview

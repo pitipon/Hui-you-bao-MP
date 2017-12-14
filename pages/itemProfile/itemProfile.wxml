@@ -1,0 +1,174 @@
+<!--pages/group/group.wxml-->
+
+ <image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image>  
+
+<!-- <view bindtap='deleteItem'> DELETEEEEEEEEEEEEE</view> -->
+<!--CARDDDDDDD SECTION  -->
+<view wx:if="{{!item.is_private && (item.image_url || item.description )}}" class="card">
+  <view class="flex-wrp">
+
+    <!-- HEAD PART  -->
+    <view class="flex-item-head ">
+      <view class="card-head">
+          <!-- HEAD LEFT (avatar) -->
+          <view class="card-head-left">
+              <image class="avatar" src='{{item.user.avatar_url}}'></image>
+          </view>
+          <!-- HEAD RIGHT (name + discount)  -->
+          <view class="card-head-right">
+            <view class="card-head-between-name-discount">
+              <!-- FOR NAME AND LOCATION  -->
+              <view class='flex-item-name'> 
+                <view class='flex-for-name-time'>
+                  <view class='name-font-head'>{{item.user.name}}</view>
+                  <view class='detail-font-head'>
+                      {{item.item_created_at}}
+                      
+                  </view>
+                </view>  
+              </view>
+              <!-- FOR NAME AND LOCATION  -->
+
+              <!-- FOR DISCOUNT  -->
+              <view >
+                <view wx:if="{{item.discount}}" class="discount-avatar " style="background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url('')">
+                    <view class='discount-text'>
+                      {{item.discount}}折
+                    </view>  
+                </view>
+              </view>
+              <!-- FOR DISCOUNT  -->
+            </view>
+         </view>
+         <!-- HEAD RIGHT (name + discount)  -->
+      </view>
+    </view>
+    <!-- HEAD PART  -->
+
+    <!--discription + price + location  -->
+    <block wx:if="{{item.description || item.price || item.location}}">
+    <view class="flex-item-msg">
+      <block wx:if="{{item.description}}">{{item.description}}</block>
+      <block wx:if="{{item.description && item.price}}">  , </block>
+      <block wx:if="{{item.price}}">{{item.price}}元</block>
+    </view>
+
+    <view class="flex-item-location">
+      <block wx:if="{{item.location}}"> at {{item.location}}</block> 
+    </view>
+    </block>
+    <!--discription + price + location  -->
+
+    <!-- HEAD PART  -->
+
+    <!-- BODY PART  -->
+    <view wx:if="{{item.image_url}}" class="flex-item-pic " style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('{{item.image_url}}')" data-index="{{itemsIndex}}" bindtap="previewImage"></view>
+    <!-- BODY PART  -->
+
+    <!-- BOTTOM PART  -->
+    <view class="flex-item-bottom">
+       
+        <!--like  -->
+        <view wx:if="{{!item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendLike'>
+        ❤ {{item.num_likes}}人
+        </view>
+         <view wx:if="{{item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendUnlike'>
+        ❤ {{item.num_likes}}人+1
+        </view> 
+        <!--like  -->
+        <!--comment  -->
+        <view class='flex-bottom-item' >
+        评论
+        <block wx:if="{{item.num_comments}}">({{item.num_comments}})</block>
+        </view>
+        <!--comment  -->
+        <!--share  -->
+         <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='shareMessage'>分享</view> 
+        <!--share  -->
+        
+    </view>
+    <!-- BOTTOM PART  -->
+  </view>
+</view>
+<!--CARDDDDDDD SECTION  -->
+
+
+<!--POST COMMENT   -->
+
+<form bindsubmit="bindFormSubmit">
+            
+    <view class ="upload-bg">
+      <!--FIRST ROW  -->
+      <view class='row-container'>
+          
+
+
+          <view class="user-item">
+            <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+          </view>
+
+            <view class="message-item">
+            <input name="message" class="message-input"  placeholder="分享新鲜事" placeholder-class="message-placeholder" type="text" maxlength='30'/>
+      </view>
+
+            <view class='submit-item'>                     
+                <button class="submit-property" type="primary" form-type="submit" loading="{{loading}}" >发送</button>
+            </view>
+    
+      </view>
+      <!--FIRST ROW  -->
+    </view>
+    
+</form>
+
+<!--POST COMMENT  -->
+
+
+
+<!-- VIEW COMMENT PART  -->
+
+  <!--  LOOP BLOCK FOR ALL CARDS -->
+
+<view class ="upload-bg">
+      <!--FIRST ROW  -->
+      <view class='row-container' wx:for="{{comments}}" wx:for-item="comment" wx:for-index="commentsIndex" wx:key="comments">
+
+      <view class="user-item">
+            <image src="{{comment.user.avatar_url}}" class="user-avatar"></image>
+      </view>
+
+      <view class="message-item">
+            <!-- FOR NAME AND LOCATION  -->
+              <view class='flex-item-name'> 
+                <view class='flex-for-name-time'>
+                  <view class='name-font-head-comment'>{{comment.user.name}}, {{comment.item_created_at}}</view>
+                  <view class='detail-font-head'>
+                      {{comment.body}}
+                      
+                  </view>
+                </view>  
+              </view>
+              <!-- FOR NAME AND LOCATION  -->
+      </view>
+      </view>
+      <!--FIRST ROW  -->
+
+</view>
+
+<!-- VIEW COMMENT PART  -->
+
+<view class='blank-item'></view>
+
+<button type="warn" size="default"  bindtap="warn" bindtap='deleteItem'> Delete </button>
+
+
+<!--blank item for padding item from bottom  -->
+<view class='blank-item'></view>
+
+<view class='nav'>
+  <view class='salmon-container'>
+     <image class="avatar-tab"   src="../../dist/images/feed-active.png" bindtap="goHome"></image> 
+     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
+     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+  </view>
+</view>
