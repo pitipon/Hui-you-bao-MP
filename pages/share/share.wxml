@@ -1,7 +1,7 @@
 
 <!-- WX:if ... make the card for share  -->
 
-<image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image> 
+<!-- <image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image>  -->
 
 
 

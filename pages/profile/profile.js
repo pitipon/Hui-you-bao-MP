@@ -53,8 +53,22 @@ Page({
       url: '/pages/profile/profile'
     })
   },
+  goProfileItem: function (e) {
+    let that = this
+    let data = e.currentTarget.dataset
+    let index = data.index
+    let item_id = that.data.items[index].id
 
+    let _url = '/pages/item/item?id=' + item_id
 
+    console.log("goProfileItem - Index >>")
+    console.log(index)
+
+    app.globalData.profileItem = that.data.items[index]
+    wx.redirectTo({
+      url: _url,
+    })
+  },
   onPullDownRefresh: function () {
     console.log(this.data.items)
     this.onLoad(function () {

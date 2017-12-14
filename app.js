@@ -128,7 +128,8 @@ App({
     email: "",
     user: {},
     items: {},
-    item: {}
+    item: {},
+    profileItem: {}
 
   }
 })

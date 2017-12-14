@@ -14,7 +14,8 @@
 <view class="gallery">
         <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
             <view class="gallery-item">
-                <image class="gallery-item-cover" src="{{item.image_url}}" mode="aspectFill" data-index="{{itemsIndex}}" bindtap="previewImage"></image>
+                <image class="gallery-item-cover" src="{{item.image_url}}" mode="aspectFill" data-index="{{itemsIndex}}" bindtap="goProfileItem"></image>
+                <!-- <image class="gallery-item-cover" src="{{item.image_url}}" mode="aspectFill" data-index="{{itemsIndex}}" bindtap="previewImage"></image> -->
             </view>
         </block>
     </view>

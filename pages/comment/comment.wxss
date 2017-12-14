@@ -131,7 +131,7 @@
   font-size: 12px;
   color: #666666;
   
-}
+} 
 
 .row-container {
   display: flex;

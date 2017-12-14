@@ -1,5 +1,11 @@
 <!-- {{item_id}} -->
-<image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image> 
+<!-- <image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image>  -->
+
+<!-- PULL DOWN - with corgi  -->
+ <view wx:if="{{is_pulldown}}"  class="pull-down-center">
+  <image class='pull-avatar' src='../../dist/images/dog.png'></image>
+ </view>
+ <!-- PULL DOWN - with corgi  -->
 
 <form bindsubmit="bindFormSubmit">
             
@@ -53,22 +59,21 @@
               </view>
               <!-- FOR NAME AND LOCATION  -->
       </view>
-          
-    
       </view>
       <!--FIRST ROW  -->
 
-
-
-      
 </view>
+
+<!-- VIEW COMMENT PART  -->
+
+ 
+
+
 
 <!--blank item for padding item from bottom  -->
 <view class='blank-item'></view>
 
-<!-- <view class='nav-back'>
-  <image class="avatar-back"   src="../../dist/images/back.png" bindtap="goBack"></image>
-</view> -->
+
 
 <view class='nav'>
   <view class='salmon-container'>

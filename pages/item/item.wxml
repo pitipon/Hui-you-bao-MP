@@ -1,28 +1,8 @@
 <!--pages/group/group.wxml-->
 
-<!-- PULL DOWN - with corgi  -->
- <view wx:if="{{is_pulldown}}"  class="pull-down-center">
-  <image class='pull-avatar' src='../../dist/images/dog.png'></image>
- </view>
- <!-- PULL DOWN - with corgi  -->
+ <image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image>  
 
 
-
-<!-- SHORT-CUT for POST  -->
-<view wx:if="{{items}}" class="card"  bindtap="takePicture">
-  <view class="flex-wrp post-align" >
-        <view class="card-head-left ">
-        <image class="avatar" src="../../dist/images/camera.jpg"></image>
-    </view>
-  </view>
-</view>
-<!-- SHORT-CUT for POST  -->
-
-
-
-
-  <!--  LOOP BLOCK FOR ALL CARDS -->
-<block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
 <!--CARDDDDDDD SECTION  -->
 <view wx:if="{{!item.is_private && (item.image_url || item.description )}}" class="card">
   <view class="flex-wrp">
@@ -97,7 +77,7 @@
         </view> 
         <!--like  -->
         <!--comment  -->
-        <view class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='goProfileItem'>
+        <view class='flex-bottom-item' >
         评论
         <block wx:if="{{item.num_comments}}">({{item.num_comments}})</block>
         </view>
@@ -111,30 +91,73 @@
   </view>
 </view>
 <!--CARDDDDDDD SECTION  -->
-</block>
 
-<!-- Loading cards  -->
-<view wx:if="{{is_loading}}" class="card" >
-    <view class='flex-wrp'>
-        <view class="FB-Loading-Card">
-            <view class="FB-Loading-FirstBox">
-                  <view class="FB-Loading-FirstBox-Img avatar"></view>
-                  <view class="FB-Loading-FirstBox-1stRow"></view>
-                  <view class="FB-Loading-FirstBox-2ndRow"></view>
+
+<!--POST COMMENT   -->
+
+<form bindsubmit="bindFormSubmit">
+            
+    <view class ="upload-bg">
+      <!--FIRST ROW  -->
+      <view class='row-container'>
+          
+
+
+          <view class="user-item">
+            <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
+          </view>
+
+            <view class="message-item">
+            <input name="message" class="message-input"  placeholder="分享新鲜事" placeholder-class="message-placeholder" type="text" maxlength='30'/>
+      </view>
+
+            <view class='submit-item'>                     
+                <button class="submit-property" type="primary" form-type="submit" loading="{{loading}}" >发送</button>
             </view>
-            <view class="FB-Loading-FirstBox-3rdRow"></view>
-            <view class="FB-Loading-FirstBox-4thRow"></view>
-            <view class="FB-Loading-FirstBox-5thRow"></view>
-        </view>
+    
+      </view>
+      <!--FIRST ROW  -->
     </view>
+    
+</form>
+
+<!--POST COMMENT  -->
+
+
+
+<!-- VIEW COMMENT PART  -->
+
+  <!--  LOOP BLOCK FOR ALL CARDS -->
+
+<view class ="upload-bg">
+      <!--FIRST ROW  -->
+      <view class='row-container' wx:for="{{comments}}" wx:for-item="comment" wx:for-index="commentsIndex" wx:key="comments">
+
+      <view class="user-item">
+            <image src="{{comment.user.avatar_url}}" class="user-avatar"></image>
+      </view>
+
+      <view class="message-item">
+            <!-- FOR NAME AND LOCATION  -->
+              <view class='flex-item-name'> 
+                <view class='flex-for-name-time'>
+                  <view class='name-font-head-comment'>{{comment.user.name}}, {{comment.item_created_at}}</view>
+                  <view class='detail-font-head'>
+                      {{comment.body}}
+                      
+                  </view>
+                </view>  
+              </view>
+              <!-- FOR NAME AND LOCATION  -->
+      </view>
+      </view>
+      <!--FIRST ROW  -->
+
 </view>
-<!-- Loading cards  -->
 
-<view wx:if='{{active_no_more_item && !is_loading}}' class="pull-down-center">
+<!-- VIEW COMMENT PART  -->
 
-    <image class='pull-avatar' src='../../dist/images/dog.png'></image>
 
-</view>
 
 
 <!--blank item for padding item from bottom  -->

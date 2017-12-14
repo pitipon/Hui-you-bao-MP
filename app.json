@@ -6,7 +6,8 @@
     "pages/profile/profile",
     "pages/test/test",
     "pages/share/share",
-    "pages/comment/comment"
+    "pages/comment/comment",
+    "pages/item/item"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -12,7 +12,8 @@ Page({
   data: {
     item_id: 0,
     loading: false,
-    comments: []
+    comments: [],
+    is_pulldown: false,
   },
 
   /**
@@ -173,7 +174,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    
   },
 
   /**

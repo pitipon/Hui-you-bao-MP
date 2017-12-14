@@ -6,6 +6,12 @@ function getItemComment(id, cb) {
   console.log("URL Comment >> " + _url)
   console.log(id)
 
+  setTimeout(function () {
+    that.setData({
+      is_pulldown: false
+    })
+  }, 500)
+
   // ### Sent GET request
   wx.request({
     url: _url,
@@ -37,6 +43,12 @@ function getItemComment(id, cb) {
 
 function fetchItemDetail(url, id, cb) {
   let that = this;
+
+  setTimeout(function () {
+    that.setData({
+      is_pulldown: false
+    })
+  }, 500)
   
   // ### Send GET request
   wx.request({
@@ -52,6 +64,7 @@ function fetchItemDetail(url, id, cb) {
         })
 
         console.log(that.data.item)
+      
         
         typeof cb == 'function' && cb(res.data)
 
