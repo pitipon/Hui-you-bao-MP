@@ -11,7 +11,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#356CFF",
-    "navigationBarTitleText": "惠优宝 hui you bao",
+    "navigationBarTitleText": "惠优宝",
     "navigationBarTextStyle":"#ffffff",
     "enablePullDownRefresh": true
   }
