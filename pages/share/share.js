@@ -125,11 +125,11 @@ Page({
     })
 
 
-    setTimeout(function () {
-      wx.reLaunch({
-        url: '/pages/index/index'
-      })
-    }, 500)
+    // setTimeout(function () {
+    //   wx.reLaunch({
+    //     url: '/pages/index/index'
+    //   })
+    // }, 500)
 
     let _title = ""
     _title = that.data.item.description

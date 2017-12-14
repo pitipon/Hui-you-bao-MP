@@ -1,6 +1,8 @@
 /* pages/post/post.wxss */
 
-
+.no-pic-warning{
+  text-align: center;
+}
 /*FOR BOTTOM TAB  */
 .blank-item {
   height: 70px;

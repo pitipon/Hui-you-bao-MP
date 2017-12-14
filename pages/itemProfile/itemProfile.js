@@ -164,7 +164,7 @@ Page({
 
 
           wx.reLaunch({
-            url: '/pages/item/item?id=' + that.data.item_id
+            url: '/pages/itemProfile/itemProfile?id=' + that.data.item_id
           })
 
         } catch (e) {

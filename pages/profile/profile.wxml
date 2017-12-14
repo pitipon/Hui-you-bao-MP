@@ -16,7 +16,7 @@
                 <view>
                   <view class='col-container'>
                       <view class='spending-header'>
-                      消费总额
+                      本月消费总额
                       </view>
                       <view class='spending-text'>
                       {{totalAmountSpent}} 元
@@ -26,7 +26,7 @@
                 <view>
                   <view class='col-container'>
                       <view class='savemoney-header'>
-                      总共节省
+                      本月总共节省
                       </view>
                       <view class='savemoney-text'>
                       {{ percentSaveMoney }} %
