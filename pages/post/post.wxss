@@ -11,6 +11,9 @@
   justify-content: space-around;
   
 }
+.no-pic-warning{
+  text-align: center;
+}
 
 .avatar-back {
   width: 30px;
