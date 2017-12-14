@@ -94,14 +94,6 @@ function fetchItemsRecent(url, page, cb) {
     })
   }, 500)
 
- 
-
-  console.log("HasMore:" + that.data.hasMore)
-  console.log("URL:" + url)
-  console.log("Page:" + page)
-  console.log("cb:" + typeof cb === 'function');
-  console.log("Start: " + that.data.start);
-
   if (that.data.hasMore) {
   // ### Sent GET request
   wx.request({
@@ -115,7 +107,7 @@ function fetchItemsRecent(url, page, cb) {
       'X-User-Email': app.globalData.email,
       'X-User-Token': app.globalData.token
     },
-    success: function (res) {
+    success:  function (res) {
       try {
         console.log("INDEX API: ")
         console.log(res)
@@ -128,6 +120,51 @@ function fetchItemsRecent(url, page, cb) {
           showLoading: false,
           is_loading: false
         })
+
+        if (url == config.apiList.itemsForCurrentUser) {
+          let totalAmountSpent = 0;
+          let averageAmountSaved = 0;
+          let totalAmountSaved = 0;
+
+          // calculate the data ...
+
+          let itemsWithDiscountAndPrice = that.data.items.filter((item) => {
+            let price = Number.parseFloat(item.price);
+            let discount = Number.parseFloat(item.discount)
+
+            return !Number.isNaN(discount) && !Number.isNaN(price);
+          });
+
+          // Calculate totalAmountSaved
+          for(var i = 0; i < itemsWithDiscountAndPrice.length; i++) {
+            let item = itemsWithDiscountAndPrice[i];
+            let price = Number.parseFloat(item.price);
+            let discount = Number.parseFloat(item.discount)
+
+            let amountSavedOnThisItem = price * ((100 - discount * 10) / 100);
+            totalAmountSaved = totalAmountSaved + amountSavedOnThisItem;
+          }
+
+          // Calculate totalAmountSpent
+          for(var i = 0; i < that.data.items.length; i++) {
+            let item = that.data.items[i];
+
+            let price = Number.parseFloat(item.price);
+            let discount = Number.parseFloat(item.discount);
+            if(!Number.isNaN(price)) {
+              totalAmountSpent = price + totalAmountSpent;
+            }
+          }
+
+          // Calculate averageAmountSaved
+          averageAmountSaved = totalAmountSaved / itemsWithDiscountAndPrice.length;
+
+          that.setData({
+            totalAmountSpent: totalAmountSpent,
+            averageAmountSaved: averageAmountSaved,
+            totalAmountSaved: totalAmountSaved
+          })
+        }
 
         wx.stopPullDownRefresh()
         typeof cb == 'function' && cb(res.data)
