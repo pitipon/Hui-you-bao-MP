@@ -31,7 +31,6 @@ Page({
 
     // Fetch items from user
     jinma.fetchItemsRecent.call(that, config.apiList.itemsForCurrentUser, that.data.start)
-
   },
   goBack: function (e) {
     wx.navigateBack({

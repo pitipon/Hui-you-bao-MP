@@ -4,7 +4,22 @@
         <view class="user-nickname">
             {{userInfo.nickName}}
         </view>
+
         <view class="user-location">{{userInfo.province}}, {{userInfo.city}}</view>
+
+        <view class="user_stats">
+          <view class="total_amount_spent">
+            Total amount spent: {{totalAmountSpent}}
+          </view>
+          
+          <view class="average_amount_saved">
+             Average amount saved: {{ averageAmountSaved }}
+          </view>
+
+          <view class="total_amount_saved">
+            Total amount saved: {{ totalAmountSaved }}
+          </view>
+        </view>
     </view>
     
 
