@@ -64,10 +64,10 @@
 
         <view class='flex-item-location'>
                   <!-- LOCATION ICON : in second row  -->
-                <view class='row-container' bindtap="pinLocation">
+                <view class='row-container' >
                     <view class='image-center location-padding' >
-                        <image wx:if="{{!value_location}}" class="avatar"   src="../../dist/images/location.jpg" bindtap="pinLocation"></image> 
-                        <image wx:if="{{value_location}}" class="avatar"   src="../../dist/images/location-active.jpg" bindtap="pinLocation"></image> 
+                        <image wx:if="{{!value_location}}" class="avatar"   src="../../dist/images/location.jpg" ></image> 
+                        <image wx:if="{{value_location}}" class="avatar"   src="../../dist/images/location-active.jpg" ></image> 
                     </view>
 
                     <view class='location-text'>地点</view>
