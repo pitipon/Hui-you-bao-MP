@@ -162,73 +162,82 @@ Page({
     let _image_url = this.data.imageUrl
     let _is_private = !this.data.is_public
     let _latitude = this.data.latitude
-    let _longitude = this.data.longitude
+    let _longitude = this.data.longitude;
 
-    wx.request({
-      success: function (res) {
-        try {
-          console.log("Res from server: ")
-          console.log(res)
+    if(_image_url && _image_url.length > 0) {
+      wx.request({
+        success: function (res) {
+          try {
+            console.log("Res from server: ")
+            console.log(res)
 
-          // console.log("TEST Res store globalData >>>")
-          // console.log(app.globalData.token)
-          // console.log(app.globalData.currentUserId)
-          console.log("done for post to API")
-          that.setData({
-            loading: !that.data.loading
-          })
-
-          wx.showToast({
-            title: '已发送',
-              icon: 'success',
-              duration: 1000
-          })
-
-          // Clear ITEM after done post
-
-          that.data.haveImage = false
-          that.data.is_sending = false
-          that.data.imageSrc = ""
-          that.data.imageUrl = ""
-          that.data.index = ""
-          that.data.loading = false
-          that.data.is_public = true
-          that.data.is_take_photo = false
-
-          setTimeout(function () {
-            wx.reLaunch({
-              url: '/pages/index/index'
+            // console.log("TEST Res store globalData >>>")
+            // console.log(app.globalData.token)
+            // console.log(app.globalData.currentUserId)
+            console.log("done for post to API")
+            that.setData({
+              loading: !that.data.loading
             })
-          }, 500)
+
+            wx.showToast({
+              title: '已发送',
+                icon: 'success',
+                duration: 1000
+            })
+
+            // Clear ITEM after done post
+
+            that.data.haveImage = false
+            that.data.is_sending = false
+            that.data.imageSrc = ""
+            that.data.imageUrl = ""
+            that.data.index = ""
+            that.data.loading = false
+            that.data.is_public = true
+            that.data.is_take_photo = false
+
+            setTimeout(function () {
+              wx.reLaunch({
+                url: '/pages/index/index'
+              })
+            }, 500)
 
 
 
-        } catch (e) {
-          console.log(e)
+          } catch (e) {
+            console.log(e)
+          }
+        },
+
+        url: config.baseUrl + '/api/v1/items',
+        method: "post",
+        header: {
+          'content-type': 'application/json',
+          'X-User-Email': app.globalData.email,
+          'X-User-Token': app.globalData.token
+        },
+        data: {
+          item: {
+            price: _price,
+            discount: _discount,
+            description: _message,
+            image_url: _image_url,
+            category: _category,
+            is_private: _is_private,
+            latitude: _latitude,
+            longitude: _longitude,
+            location: _location
+          }
         }
-      },
-
-      url: config.baseUrl + '/api/v1/items',
-      method: "post",
-      header: {
-        'content-type': 'application/json',
-        'X-User-Email': app.globalData.email,
-        'X-User-Token': app.globalData.token
-      },
-      data: {
-        item: {
-          price: _price,
-          discount: _discount,
-          description: _message,
-          image_url: _image_url,
-          category: _category,
-          is_private: _is_private,
-          latitude: _latitude,
-          longitude: _longitude,
-          location: _location
-        }
-      }
-    })
+      })
+    }
+    else {
+      // show validation error message
+      this.setData({
+        showPictureRequiredErrorMessage: true,
+        loading: false
+      })
+    }
 
 
 
