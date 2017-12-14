@@ -156,13 +156,18 @@ function fetchItemsRecent(url, page, cb) {
             }
           }
 
+          let percentSaveMoney = Math.round((totalAmountSaved / totalAmountSpent) * 100)
+
+
+
           // Calculate averageAmountSaved
           averageAmountSaved = totalAmountSaved / itemsWithDiscountAndPrice.length;
 
           that.setData({
             totalAmountSpent: totalAmountSpent,
             averageAmountSaved: averageAmountSaved,
-            totalAmountSaved: totalAmountSaved
+            totalAmountSaved: totalAmountSaved,
+            percentSaveMoney: percentSaveMoney
           })
         }
 

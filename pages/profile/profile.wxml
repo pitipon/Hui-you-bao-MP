@@ -1,12 +1,46 @@
-<view class="container-profile">
-     <view class="user-info" style="background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.9)), url('')"> 
-        <image src="{{userInfo.avatarUrl}}" class="user-avatar"></image>
-        <view class="user-nickname">
+
+<!-- Profile component  -->
+<view class='col-container'>
+
+      <view class='flex-item profile-padding'>
+           <image src="{{userInfo.avatarUrl}}" class="user-avatar flex-item"></image>
+     
+      </view>
+         <view class="user-nickname">
             {{userInfo.nickName}}
         </view>
 
         <view class="user-location">{{userInfo.province}}, {{userInfo.city}}</view>
 
+        <view class='flex-item profile-padding'>
+            <view class='row-container'>
+                <view>
+                  <view class='col-container'>
+                      <view class='spending-header'>
+                      All Spending
+                      </view>
+                      <view class='spending-text'>
+                      {{totalAmountSpent}} 元
+                      </view>
+                  </view>
+                </view>
+                <view>
+                  <view class='col-container'>
+                      <view class='savemoney-header'>
+                      Save Money
+                      </view>
+                      <view class='savemoney-text'>
+                      {{ percentSaveMoney }} %
+                      </view>
+                  </view>
+                </view>
+            </view>
+        </view>
+
+</view>
+<!-- Profile component  -->
+
+<!-- <view class="profile">
         <view class="user_stats">
           <view class="total_amount_spent">
             Total amount spent: {{totalAmountSpent}}
@@ -19,13 +53,15 @@
           <view class="total_amount_saved">
             Total amount saved: {{ totalAmountSaved }}
           </view>
+
+          <view class="total_amount_saved">
+            Saved: {{ (totalAmountSaved / totalAmountSpent) * 100 }} %
+          </view>
         </view>
-    </view>
-    
+</view> -->
 
 
-</view>
-
+<!--GALERY  -->
 <view class="gallery">
         <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
             <view class="gallery-item">
@@ -34,14 +70,15 @@
             </view>
         </block>
     </view>
+<!--GALERY  -->
 
-
+<!--END PAGE  -->
 <view wx:if='{{active_no_more_item && !is_loading}}' class="pull-down-center">
 
     <image class='pull-avatar' src='../../dist/images/dog.png'></image>
 
 </view>
-
+<!--END PAGE  -->
 
 <!--blank item for padding item from bottom  -->
 <view class='blank-item'></view>
