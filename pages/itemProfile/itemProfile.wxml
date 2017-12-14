@@ -168,7 +168,7 @@
 
 <view class='blank-item'></view>
 
-<button type="warn" size="default" class='padding-delete' bindtap="warn" bindtap='deleteItem'> Delete </button>
+<button type="warn" size="default" class='padding-delete' bindtap="warn" bindtap='deleteItem'> 删除记录 </button>
 
 
 <!--blank item for padding item from bottom  -->
