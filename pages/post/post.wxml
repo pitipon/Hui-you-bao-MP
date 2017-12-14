@@ -172,10 +172,10 @@
 
 <!-- Take picture - ROW  -->
 <view class='row-container' bindtap="takePicture">
-  <view class='row-container' bindtap="takePicture">
+  <view class='row-container' >
     <view class='image-center location-padding' >
-      <image wx:if="{{!haveImage}}" class="avatar"   src="../../dist/images/camera.jpg" bindtap="takePicture"></image> 
-      <image wx:if="{{haveImage}}" class="avatar"   src="../../dist/images/camera-active.jpg" bindtap="takePicture"></image> 
+      <image wx:if="{{!haveImage}}" class="avatar"   src="../../dist/images/camera.jpg" ></image> 
+      <image wx:if="{{haveImage}}" class="avatar"   src="../../dist/images/camera-active.jpg" ></image> 
     </view>
     <view class='location-text'>拍摄</view>
   </view>
