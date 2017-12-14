@@ -185,7 +185,7 @@
 
 
 </view>
-          <view wx:if="{{showPictureRequiredErrorMessage && !haveImage}}">
+          <view class="no-pic-warning" wx:if="{{showPictureRequiredErrorMessage && !haveImage}}">
     <icon type="warn"/> 请拍照或选择照片上传</view>      
 <button wx:if="{{haveImage}}" class='padding-share' type="primary" form-type="submit" loading="{{loading}}" >发送</button>
 

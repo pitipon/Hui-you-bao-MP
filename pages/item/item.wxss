@@ -39,7 +39,11 @@
   display: flex;
   justify-content: space-around;
   /* text-align: center; */
-  border-bottom: 0.2px solid #dddddd;
+   /* border-bottom: 0.2px solid #dddddd;  */
+}
+
+.comment-border-bottom {
+  border-bottom: 0.2px solid #dddddd; 
 }
 
 

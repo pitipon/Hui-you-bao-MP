@@ -138,10 +138,10 @@
 
   <!--  LOOP BLOCK FOR ALL CARDS -->
 
-<view class ="upload-bg">
+<view class ="upload-bg" wx:if="{{comments}}">
       <!--FIRST ROW  -->
       <view class='row-container' wx:for="{{comments}}" wx:for-item="comment" wx:for-index="commentsIndex" wx:key="comments">
-
+   <!-- <block wx:if="{{comment.body}}" class="comment-border-bottom"> -->
       <view class="user-item">
             <image src="{{comment.user.avatar_url}}" class="user-avatar"></image>
       </view>
@@ -159,7 +159,8 @@
               </view>
               <!-- FOR NAME AND LOCATION  -->
       </view>
-      </view>
+      <!-- </block> -->
+    </view>
       <!--FIRST ROW  -->
 
 </view>
