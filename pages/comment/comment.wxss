@@ -1,5 +1,9 @@
 /* pages/post/post.wxss */
-
+.icon-back {
+  width: 74px;
+  height: 30px;
+  opacity: 0.5;
+}
 
 /*FOR BOTTOM TAB  */
 .blank-item {

@@ -1,5 +1,12 @@
 /* pages/group/group.wxss */
 
+.icon-back {
+  width: 74px;
+  height: 30px;
+  opacity: 0.5;
+}
+
+
 .blank-item {
   height: 70px;
 }

@@ -1,6 +1,8 @@
 
 <!-- WX:if ... make the card for share  -->
 
+<image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image> 
+
 
 
 <!--CARDDDDDDD SECTION  -->
@@ -87,9 +89,9 @@
 <!--blank item for padding item from bottom  -->
 <view class='blank-item'></view>
 
-<view class='nav-back'>
+<!-- <view class='nav-back'>
   <image class="avatar-back"   src="../../dist/images/back.png" bindtap="goBack"></image>
-</view>
+</view> -->
 
 <view class='nav'>
   <view class='salmon-container'>
