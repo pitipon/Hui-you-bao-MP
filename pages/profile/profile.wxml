@@ -11,7 +11,6 @@
         </view>
 
         <view class="user-location">{{userInfo.province}}, {{userInfo.city}}</view>
-
         <view class='flex-item profile-padding'>
             <view class='row-container'>
                 <view>

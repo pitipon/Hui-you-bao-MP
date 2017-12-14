@@ -133,12 +133,13 @@
 
 <!-- Contain pic after take picture  -->
 <view class='flex-container-image' wx:if="{{!haveImage}}">
-<view class="flex-item-photo">
-              
-
-        </view>
+  <view class="flex-item-photo">            
+  </view>
 </view>
+
+
 <view class='flex-container-image' wx:if="{{is_sending || haveImage}}">
+
 
       
       <view class='flex-container-image'>
@@ -184,7 +185,8 @@
 
 
 </view>
-            
+          <view wx:if="{{showPictureRequiredErrorMessage}}">
+    <icon type="warn"/> Picture required</view>      
 <button wx:if="{{haveImage}}" class='padding-share' type="primary" form-type="submit" loading="{{loading}}" >发送</button>
 
 </form>
