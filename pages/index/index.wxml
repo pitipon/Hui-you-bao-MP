@@ -20,6 +20,66 @@
 
 
 
+<!--ADS: CARDDDDDDD SECTION  -->
+<view  class="card">
+  <view class="flex-wrp">
+
+    <!-- HEAD PART  -->
+    <view class="flex-item-head ">
+      <view class="card-head">
+          <!-- HEAD LEFT (avatar) -->
+          <view class="card-head-left">
+              <image class="avatar" src='http://ac-gjevwccm.clouddn.com/8f4d4b771ceaf659917e'></image>
+          </view>
+          <!-- HEAD RIGHT (name + discount)  -->
+          <view class="card-head-right">
+            <view class="card-head-between-name-discount">
+              <!-- FOR NAME AND LOCATION  -->
+              <view class='flex-item-name'> 
+                <view class='flex-for-name-time'>
+                  <view class='name-font-head'>惠优宝</view>
+                  <view class='detail-font-head'>
+                      Hui You Bao
+                      
+                  </view>
+                </view>  
+              </view>
+              <!-- FOR NAME AND LOCATION  -->
+
+              
+            </view>
+         </view>
+         <!-- HEAD RIGHT (name + discount)  -->
+      </view>
+    </view>
+    <!-- HEAD PART  -->
+
+    <!--discription + price + location  -->
+    
+    <view class="flex-item-msg">
+      <block>拍照上传，即刻分享折扣价！</block>
+    
+    </view>
+
+    <view class="flex-item-location"></view>
+    
+    <!--discription + price + location  -->
+
+    <!-- HEAD PART  -->
+
+    <!-- Image PART  -->
+    <!-- <view class="flex-item-pic " style="background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('http://ac-gjevwccm.clouddn.com/8f4d4b771ceaf659917e')" data-index="{{itemsIndex}}"></view> -->
+    <!-- Image PART  -->
+
+    
+  </view>
+</view>
+<!--ADS: CARDDDDDDD SECTION  -->
+
+
+
+
+
 
   <!--  LOOP BLOCK FOR ALL CARDS -->
 <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
