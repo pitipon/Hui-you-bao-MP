@@ -4,7 +4,17 @@
   padding-right: 20px;
 }
 
+.love-container {
+  display: flex;
+  justify-content: flex-start;
+  
+}
 
+.heart-avatar {
+  width: 10px;
+  height: 10px;
+  padding-right: 5px;
+}
 
 .icon-back {
   padding-top: 4px;
