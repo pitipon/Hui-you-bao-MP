@@ -161,10 +161,10 @@
 
       <view class="message-item">
             <!-- FOR NAME AND LOCATION  -->
-              <view class='flex-item-name'> 
+              <view class='flex-item-name2'> 
                 <view class='flex-for-name-time'>
                   <view class='name-font-head-comment'>{{comment.user.name}}, {{comment.item_created_at}}</view>
-                  <view class='detail-font-head'>
+                  <view class='comment-font-head'>
                       {{comment.body}}
                       
                   </view>
