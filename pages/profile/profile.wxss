@@ -1,4 +1,15 @@
 
+.extend-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+.stat-padding {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 
 .profile-padding {
   padding-top: 20px;

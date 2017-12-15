@@ -11,7 +11,7 @@
         </view>
 
         <view class="user-location">{{userInfo.province}}, {{userInfo.city}}</view>
-        <view class='flex-item profile-padding'>
+        <view class='flex-item stat-padding'>
             <view class='row-container'>
                 <view>
                   <view class='col-container'>
@@ -84,8 +84,14 @@
 
 <view class='nav'>
   <view class='salmon-container'>
-     <image class="avatar-tab"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
-     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
-     <image class="avatar-tab"   src="../../dist/images/profile-active.png" bindtap="goProfile"></image> 
+      <view class='extend-padding' bindtap="goHome">
+      <image class="avatar-tab"   src="../../dist/images/feed.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goPost">
+      <image class="avatar-tab"   src="../../dist/images/post5.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goProfile">
+      <image class="avatar-tab"   src="../../dist/images/profile.png" ></image> 
+      </view>
   </view>
 </view>

@@ -1,4 +1,8 @@
 /* pages/post/post.wxss */
+.extend-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 .no-pic-warning{
   text-align: center;

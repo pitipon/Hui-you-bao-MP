@@ -95,8 +95,14 @@
 
 <view class='nav'>
   <view class='salmon-container'>
-     <image class="avatar-tab"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
-     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
-     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+      <view class='extend-padding' bindtap="goHome">
+      <image class="avatar-tab"   src="../../dist/images/feed.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goPost">
+      <image class="avatar-tab"   src="../../dist/images/post5.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goProfile">
+      <image class="avatar-tab"   src="../../dist/images/profile.png" ></image> 
+      </view>
   </view>
 </view>
