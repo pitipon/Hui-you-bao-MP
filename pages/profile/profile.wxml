@@ -39,29 +39,19 @@
 </view>
 <!-- Profile component  -->
 
-<!-- <view class="profile">
-        <view class="user_stats">
-          <view class="total_amount_spent">
-            Total amount spent: {{totalAmountSpent}}
-          </view>
-          
-          <view class="average_amount_saved">
-             Average amount saved: {{ averageAmountSaved }}
-          </view>
-
-          <view class="total_amount_saved">
-            Total amount saved: {{ totalAmountSaved }}
-          </view>
-
-          <view class="total_amount_saved">
-            Saved: {{ (totalAmountSaved / totalAmountSpent) * 100 }} %
-          </view>
-        </view>
-</view> -->
-
+<!-- In case .. no items .. show camera icon  -->
+<view wx:if="{{items.length == 0}}" class='col-container' bindtap='goPost'>
+  <view>
+   <image class="camera-avatar" src="../../dist/images/camera-active.jpg"></image>
+  </view>
+  <view class='savemoney-header'>
+  拍照上传，即刻分享折扣价！
+  </view>
+</view>
+<!-- In case .. no items .. show camera icon  -->
 
 <!--GALERY  -->
-<view class="gallery">
+<view wx:if="{{items.length > 0}}" class="gallery">
         <block wx:for="{{items}}" wx:for-item="item" wx:for-index="itemsIndex" wx:key="items">
             <view class="gallery-item">
                 <image class="gallery-item-cover" src="{{item.image_url}}" mode="aspectFill" data-index="{{itemsIndex}}" bindtap="goProfileItem"></image>
