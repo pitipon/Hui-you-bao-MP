@@ -148,9 +148,12 @@ Page({
 
     let _message = e.detail.value.message
     let _item_id = that.data.item_id
+    
+    //asdf
+    
+    //asdf
 
-
-
+    if (_message && _message.length > 0) {
     wx.request({
       success: function (res) {
         try {
@@ -183,8 +186,14 @@ Page({
         comment: {
           body: _message
         }
-      }
-    })
+       }
+      })
+    }
+      else {
+      this.setData({
+        showCommentRequiredErrorMessage: true
+      })
+    }
   },
 
   /**

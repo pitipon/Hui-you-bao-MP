@@ -142,7 +142,8 @@
 
 <!--POST COMMENT  -->
 
-
+          <view class="no-comment-warning" wx:if="{{showCommentRequiredErrorMessage}}">
+    <icon type="warn"/> no comment</view> 
 
 <!-- VIEW COMMENT PART  -->
 
