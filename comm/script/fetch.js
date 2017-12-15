@@ -157,7 +157,7 @@ function fetchItemsRecent(url, page, cb) {
           }
 
           // let percentSaveMoney = Math.round((totalAmountSaved / totalAmountSpent) * 100)
-          totalAmountSpent = 0
+          
           let percentSaveMoney = 0
 
           if (totalAmountSpent != 0) {
