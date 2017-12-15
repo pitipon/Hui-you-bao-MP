@@ -16,6 +16,12 @@
   
 }
 
+.love-container {
+  display: flex;
+  justify-content: flex-start;
+  
+}
+
 .avatar-back {
   width: 30px;
   height: 30px;
@@ -68,6 +74,13 @@
   margin-left: 5px;
   margin-top: 5px;
 }
+
+.heart-avatar {
+  width: 10px;
+  height: 10px;
+  padding-right: 5px;
+}
+
 
 .discount-avatar {
   width: 50px;

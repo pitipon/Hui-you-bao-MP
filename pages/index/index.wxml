@@ -90,10 +90,21 @@
        
         <!--like  -->
         <view wx:if="{{!item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendLike'>
-        ❤ {{item.num_likes}}人
+            <view class='love-container'>
+                <view>
+                 <image class="heart-avatar" src="../../dist/images/heart.png"></image>
+                </view>
+                <view>{{item.num_likes}}人</view>
+            </view>
+        
         </view>
          <view wx:if="{{item.liked_by_current_user}}" class='flex-bottom-item' data-index="{{itemsIndex}}" bindtap='sendUnlike'>
-        ❤ {{item.num_likes}}人+1
+        <view class='love-container'>
+                <view>
+                 <image class="heart-avatar" src="../../dist/images/heart-active.png"></image>
+                </view>
+                <view>{{item.num_likes}}人+1</view>
+            </view>
         </view> 
         <!--like  -->
         <!--comment  -->
