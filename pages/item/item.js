@@ -79,7 +79,7 @@ Page({
     })
   },
   bindFormSubmit: function (e) {
-
+console.log ("asdasf")
     let that = this
 
 
@@ -97,41 +97,47 @@ Page({
     let _item_id = that.data.item_id
 
 
+    if (_message && _message.length > 0){
+      wx.request({
+        success: function (res) {
+          try {
+            console.log("Res from server: ")
+            console.log(res)
 
-    wx.request({
-      success: function (res) {
-        try {
-          console.log("Res from server: ")
-          console.log(res)
-
-          // console.log("TEST Res store globalData >>>")
-          // console.log(app.globalData.token)
-          // console.log(app.globalData.currentUserId)
-          console.log("done for post to API")
+            // console.log("TEST Res store globalData >>>")
+            // console.log(app.globalData.token)
+            // console.log(app.globalData.currentUserId)
+            console.log("done for post to API")
 
 
-          wx.reLaunch({
-            url: '/pages/item/item?id=' + that.data.item_id
-          })
+            wx.reLaunch({
+              url: '/pages/item/item?id=' + that.data.item_id
+            })
 
-        } catch (e) {
-          console.log(e)
+          } catch (e) {
+            console.log(e)
+          }
+        },
+
+        url: config.baseUrl + '/api/v1/items/' + _item_id + '/comments',
+        method: "post",
+        header: {
+          'content-type': 'application/json',
+          'X-User-Email': app.globalData.email,
+          'X-User-Token': app.globalData.token
+        },
+        data: {
+          comment: {
+            body: _message
+          }
         }
-      },
-
-      url: config.baseUrl + '/api/v1/items/' + _item_id + '/comments',
-      method: "post",
-      header: {
-        'content-type': 'application/json',
-        'X-User-Email': app.globalData.email,
-        'X-User-Token': app.globalData.token
-      },
-      data: {
-        comment: {
-          body: _message
-        }
-      }
-    })
+      })
+    }
+    else {
+      this.setData({
+        showCommentRequiredErrorMessage: true
+      })
+    }
   },
 
   /**

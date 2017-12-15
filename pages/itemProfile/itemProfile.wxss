@@ -7,6 +7,9 @@
   justify-content: flex-start;
   
 }
+.no-comment-warning{
+  text-align: center;
+}
 
 .heart-avatar {
   width: 10px;
