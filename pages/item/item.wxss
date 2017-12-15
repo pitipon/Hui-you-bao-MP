@@ -1,3 +1,11 @@
+
+.extend-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+
+
 .icon-back {
   padding-top: 4px;
   width: 22px;
@@ -169,6 +177,8 @@
   margin-left: 5px;
   margin-top: 5px;
 }
+
+
 
 .discount-avatar {
   width: 50px;

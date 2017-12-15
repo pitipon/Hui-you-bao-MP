@@ -1,13 +1,15 @@
 <!--pages/group/group.wxml-->
 
-<view class='salmon-container salmon-left' bindtap="goHome"> 
-    
-    <view class='salmon-container'>
-    <image class='icon-back' src="../../dist/images/back-arrow.png" bindtap="goHome"></image> 
-    
-    <view class='salmon-text'>首页</view>
+<!-- BACKWARD  -->
+<view wx:if="{{item}}" class="card"  bindtap="goProfile">
+  <view class="flex-wrp post-align" >
+        <view class="card-head-left ">
+        <image class="avatar" src="../../dist/images/back.jpg"></image>
     </view>
+  </view>
 </view>
+<!-- BACKWARD  -->
+
 
 
 <!-- <view bindtap='deleteItem'> DELETEEEEEEEEEEEEE</view> -->
@@ -168,7 +170,7 @@
 
 <view class='blank-item'></view>
 
-<button type="warn" size="default" class='padding-delete' bindtap="warn" bindtap='deleteItem'> Delete </button>
+<button type="warn" size="default" class='padding-delete' bindtap="warn" bindtap='deleteItem'> 删除记录 </button>
 
 
 <!--blank item for padding item from bottom  -->
@@ -176,8 +178,14 @@
 
 <view class='nav'>
   <view class='salmon-container'>
-     <image class="avatar-tab"   src="../../dist/images/feed-active.png" bindtap="goHome"></image> 
-     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
-     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+      <view class='extend-padding' bindtap="goHome">
+      <image class="avatar-tab"   src="../../dist/images/feed.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goPost">
+      <image class="avatar-tab"   src="../../dist/images/post5.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goProfile">
+      <image class="avatar-tab"   src="../../dist/images/profile.png" ></image> 
+      </view>
   </view>
 </view>

@@ -77,8 +77,14 @@
 
 <view class='nav'>
   <view class='salmon-container'>
-     <image class="avatar-tab"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
-     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
-     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+      <view>
+      <image class="avatar-tab"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
+      </view>
+      <view>
+      <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
+      </view>
+      <view>
+      <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+      </view>
   </view>
 </view>

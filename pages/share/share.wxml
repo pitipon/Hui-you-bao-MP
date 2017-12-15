@@ -6,7 +6,7 @@
 
 
 <!--CARDDDDDDD SECTION  -->
-<view wx:if="{{!item.is_private}}" class="card">
+<view wx:if="{{!item.is_private }}" class="card">
   <view class="flex-wrp">
 
     <!-- HEAD PART  -->
@@ -47,7 +47,9 @@
     </view>
 
 
-     <view class="flex-item-msg">
+    <!--discription + price + location  -->
+    <block wx:if="{{item.description || item.price || item.location}}">
+    <view class="flex-item-msg">
       <block wx:if="{{item.description}}">{{item.description}}</block>
       <block wx:if="{{item.description && item.price}}">  , </block>
       <block wx:if="{{item.price}}">{{item.price}}元</block>
@@ -55,7 +57,9 @@
 
     <view class="flex-item-location">
       <block wx:if="{{item.location}}"> at {{item.location}}</block> 
-    </view> 
+    </view>
+    </block>
+    <!--discription + price + location  -->
 
 
     <!-- HEAD PART  -->
@@ -95,8 +99,14 @@
 
 <view class='nav'>
   <view class='salmon-container'>
-     <image class="avatar-tab"   src="../../dist/images/feed.png" bindtap="goHome"></image> 
-     <image class="avatar-tab"   src="../../dist/images/post5.png" bindtap="goPost"></image> 
-     <image class="avatar-tab"   src="../../dist/images/profile.png" bindtap="goProfile"></image> 
+      <view class='extend-padding' bindtap="goHome">
+      <image class="avatar-tab"   src="../../dist/images/feed.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goPost">
+      <image class="avatar-tab"   src="../../dist/images/post5.png" ></image> 
+      </view>
+      <view class='extend-padding' bindtap="goProfile">
+      <image class="avatar-tab"   src="../../dist/images/profile.png" ></image> 
+      </view>
   </view>
 </view>

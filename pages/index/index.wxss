@@ -1,4 +1,9 @@
 
+.extend-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /*FOR BOTTOM TAB  */
 
 .blank-item {

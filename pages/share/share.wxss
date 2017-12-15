@@ -1,4 +1,8 @@
 /* pages/group/group.wxss */
+.extend-padding {
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
 .icon-back {
   width: 74px;
