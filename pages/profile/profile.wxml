@@ -42,7 +42,7 @@
 <!-- In case .. no items .. show camera icon  -->
 <view wx:if="{{items.length == 0}}" class='col-container' bindtap='goPost'>
   <view>
-   <image class="camera-avatar" src="../../dist/images/camera-active.jpg"></image>
+   <image class="camera-avatar" src="../../dist/images/camera.jpg"></image>
   </view>
   <view class='savemoney-header'>
   拍照上传，即刻分享折扣价！

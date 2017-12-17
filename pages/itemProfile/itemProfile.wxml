@@ -14,7 +14,7 @@
 
 <!-- <view bindtap='deleteItem'> DELETEEEEEEEEEEEEE</view> -->
 <!--CARDDDDDDD SECTION  -->
-<view wx:if="{{!item.is_private && (item.image_url || item.description )}}" class="card">
+<view wx:if="{{(item.image_url || item.description )}}" class="card">
   <view class="flex-wrp">
 
     <!-- HEAD PART  -->
@@ -30,7 +30,9 @@
               <!-- FOR NAME AND LOCATION  -->
               <view class='flex-item-name'> 
                 <view class='flex-for-name-time'>
-                  <view class='name-font-head'>{{item.user.name}}</view>
+                  <view wx:if="{{item.user.name.length < 14}}" class='username-font-size-nm'>{{item.user.name}}</view>
+                  <view wx:if="{{item.user.name.length >= 14 && item.user.name.length <20}}" class='username-font-size-sm'>{{item.user.name}}</view>
+                  <view wx:if="{{item.user.name.length >= 20}}" class='username-font-size-xs'>{{item.user.name}}</view>
                   <view class='detail-font-head'>
                       {{item.item_created_at}}
                       

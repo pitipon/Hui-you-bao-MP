@@ -1,3 +1,17 @@
+
+.username-font-size-xs {
+  font-size: 10px;
+}
+
+.username-font-size-sm {
+  font-size: 12px;
+}
+
+
+.username-font-size-nm {
+  font-size: 16px;
+}
+
 .comment-font-head {
   padding-top: 5px;
   font-size: 13px;

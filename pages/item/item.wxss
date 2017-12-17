@@ -1,3 +1,15 @@
+.username-font-size-xs {
+  font-size: 10px;
+}
+
+.username-font-size-sm {
+  font-size: 12px;
+}
+
+
+.username-font-size-nm {
+  font-size: 16px;
+}
 
 .extend-padding {
   padding-left: 20px;
