@@ -84,6 +84,10 @@
 <view bindtap="onShareAppMessage" data-index="{{itemsIndex}}">
             <button class="share-btn padding-share" open-type="share" type="primary">分享</button>
         </view>
+<view class='blank-space'></view>
+<view bindtap='goHome'>
+  <button class="padding-share">首页</button>
+</view>
 
 
 <!-- WX:if ... for user enter MP from card share  -->

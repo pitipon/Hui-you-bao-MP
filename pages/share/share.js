@@ -10,7 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    item: {}
+    item: {},
+    item_id: ""
   },
 
   /**
@@ -29,6 +30,9 @@ Page({
       console.log(mo)
       console.log(option)
       console.log(option.id)
+      that.setData({
+        item_id: option.id
+      })
 
 
       jinma.fetchItemDetail.call(that, config.apiList.itemDetail, option.id)
@@ -145,9 +149,12 @@ Page({
       _title = "惠优宝 hui you bao >>"
     }
 
+    let _path = "pages/share/share?id="
+    _path += that.data.item_id
+
     return {
       title: _title,
-      path: 'pages/index/index'
+      path: _path
     }
   },
   backToIndex: function () {

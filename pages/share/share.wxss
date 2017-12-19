@@ -27,6 +27,10 @@
   height: 70px;
 }
 
+.blank-space {
+  height: 10px;
+}
+
 .salmon-container {
   display: flex;
   justify-content: space-around;
