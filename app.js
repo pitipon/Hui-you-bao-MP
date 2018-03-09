@@ -4,7 +4,7 @@ const AV = require('/utils/av-weapp-min.js');
 
 AV.init({
   appId: 'GJevWCcmzoFYQ5xSGMJt3SpC-gzGzoHsz',
-  appKey: 'smGlV3vdrjPQhAK8d5JIoca3',
+  appKey: 'secret',
 });
 // Lean cloud ---
 
